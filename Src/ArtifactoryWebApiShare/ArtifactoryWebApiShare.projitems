@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>cc048443-e036-42ae-aedf-2e25bee23d28</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ArtifactoryWebApi</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AdminPrivileges.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Artifact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Artifactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Checksums.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Child.cs" />
+    <Compile Include="..\ArtifactoryWebApiShare\StorageList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StorageStats.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MdTimestamps.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RepositoriesSummary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RepositoryInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\RepositoryInfoModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\StorageModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Storage.cs" />
+    <Compile Include="..\ArtifactoryWebApiShare\BinariesSummary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\PackageType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\RepositoryType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)File.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FileStoreSummary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Project.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\ArtifactoryService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ItemType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\AdminPrivilegesModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\BinariesSummaryModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ChecksumsModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ChildModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\DirectoryModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ErrorModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ErrorsModel.cs" />
+    <Compile Include="..\ArtifactoryWebApiShare\Service\Model\StorageListModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\FileModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\FileStoreSummaryModel.cs" />
+    <Compile Include="..\ArtifactoryWebApiShare\Service\Model\StorageStatsModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\MdTimestampsModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\MessageModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\MessagesRoot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ProjectModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\RepositoriesSummaryModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\RepositoryModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\SourceGenerationContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\StorageInfoModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StorageInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
+  </ItemGroup>
+</Project>

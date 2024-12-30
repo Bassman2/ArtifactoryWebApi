@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "WebServiceClientShare", "..\WebServiceClient\Src\WebServiceClientShare\WebServiceClientShare.shproj", "{8CAACB04-9656-4B7C-A692-422FCA51474B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{05F2B3FD-CA5B-4889-9EDE-5F9481716FC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{F6867680-A9A8-4522-9986-2F1A2FD50933}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ArtifactoryWebApiShare", "Src\ArtifactoryWebApiShare\ArtifactoryWebApiShare.shproj", "{CC048443-E036-42AE-AEDF-2E25BEE23D28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactoryWebApi90", "Src\ArtifactoryWebApi90\ArtifactoryWebApi90.csproj", "{DC98D57B-7510-4AF8-B824-18DE12015125}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactoryWebApi80", "Src\ArtifactoryWebApi80\ArtifactoryWebApi80.csproj", "{36B47222-FD25-4D2A-85EA-74E9D83475C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{E2B4B80A-A730-4B6A-AFF5-DB757D3F02B4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ArtifactoryWebApiUnitTestShare", "Test\ArtifactoryWebApiUnitTestShare\ArtifactoryWebApiUnitTestShare.shproj", "{EC955E64-5331-475D-8D47-51FC2F0A9FA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactoryWebApiUnitTest90", "Test\ArtifactoryWebApiUnitTest90\ArtifactoryWebApiUnitTest90.csproj", "{0088023E-1DF9-4E7B-B707-566F3EE46AA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactoryWebApiUnitTest80", "Test\ArtifactoryWebApiUnitTest80\ArtifactoryWebApiUnitTest80.csproj", "{0DA43B1C-E996-4C24-A4B1-B471407ECA91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC98D57B-7510-4AF8-B824-18DE12015125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC98D57B-7510-4AF8-B824-18DE12015125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC98D57B-7510-4AF8-B824-18DE12015125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC98D57B-7510-4AF8-B824-18DE12015125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B47222-FD25-4D2A-85EA-74E9D83475C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B47222-FD25-4D2A-85EA-74E9D83475C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B47222-FD25-4D2A-85EA-74E9D83475C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B47222-FD25-4D2A-85EA-74E9D83475C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0088023E-1DF9-4E7B-B707-566F3EE46AA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0088023E-1DF9-4E7B-B707-566F3EE46AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0088023E-1DF9-4E7B-B707-566F3EE46AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0088023E-1DF9-4E7B-B707-566F3EE46AA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DA43B1C-E996-4C24-A4B1-B471407ECA91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA43B1C-E996-4C24-A4B1-B471407ECA91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA43B1C-E996-4C24-A4B1-B471407ECA91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA43B1C-E996-4C24-A4B1-B471407ECA91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8CAACB04-9656-4B7C-A692-422FCA51474B} = {F6867680-A9A8-4522-9986-2F1A2FD50933}
+		{CC048443-E036-42AE-AEDF-2E25BEE23D28} = {05F2B3FD-CA5B-4889-9EDE-5F9481716FC1}
+		{DC98D57B-7510-4AF8-B824-18DE12015125} = {05F2B3FD-CA5B-4889-9EDE-5F9481716FC1}
+		{36B47222-FD25-4D2A-85EA-74E9D83475C2} = {05F2B3FD-CA5B-4889-9EDE-5F9481716FC1}
+		{EC955E64-5331-475D-8D47-51FC2F0A9FA2} = {E2B4B80A-A730-4B6A-AFF5-DB757D3F02B4}
+		{0088023E-1DF9-4E7B-B707-566F3EE46AA6} = {E2B4B80A-A730-4B6A-AFF5-DB757D3F02B4}
+		{0DA43B1C-E996-4C24-A4B1-B471407ECA91} = {E2B4B80A-A730-4B6A-AFF5-DB757D3F02B4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {776AF36C-42AA-4BF5-94BC-8870DC2B7290}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Test\ArtifactoryWebApiUnitTestShare\ArtifactoryWebApiUnitTestShare.projitems*{0088023e-1df9-4e7b-b707-566f3ee46aa6}*SharedItemsImports = 5
+		Test\ArtifactoryWebApiUnitTestShare\ArtifactoryWebApiUnitTestShare.projitems*{0da43b1c-e996-4c24-a4b1-b471407eca91}*SharedItemsImports = 5
+		Src\ArtifactoryWebApiShare\ArtifactoryWebApiShare.projitems*{36b47222-fd25-4d2a-85ea-74e9d83475c2}*SharedItemsImports = 5
+		..\WebServiceClient\Src\WebServiceClientShare\WebServiceClientShare.projitems*{36b47222-fd25-4d2a-85ea-74e9d83475c2}*SharedItemsImports = 5
+		..\WebServiceClient\Src\WebServiceClientShare\WebServiceClientShare.projitems*{8caacb04-9656-4b7c-a692-422fca51474b}*SharedItemsImports = 13
+		Src\ArtifactoryWebApiShare\ArtifactoryWebApiShare.projitems*{cc048443-e036-42ae-aedf-2e25bee23d28}*SharedItemsImports = 13
+		Src\ArtifactoryWebApiShare\ArtifactoryWebApiShare.projitems*{dc98d57b-7510-4af8-b824-18de12015125}*SharedItemsImports = 5
+		..\WebServiceClient\Src\WebServiceClientShare\WebServiceClientShare.projitems*{dc98d57b-7510-4af8-b824-18de12015125}*SharedItemsImports = 5
+		Test\ArtifactoryWebApiUnitTestShare\ArtifactoryWebApiUnitTestShare.projitems*{ec955e64-5331-475d-8d47-51fc2f0a9fa2}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal

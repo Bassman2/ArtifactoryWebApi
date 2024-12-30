@@ -1,0 +1,15 @@
+{
+  "uri": "https://trialmjgn5z.jfrog.io/artifactory/api/storage/local-generic-test",
+  "created": "2024-12-19T09:32:32.507Z",
+  "files": [
+    {
+      "uri": "/Folder",
+      "size": 197,
+      "lastModified": "2024-12-18T16:12:59.408Z",
+      "folder": false,
+      "sha1": "f087cf1d23675d06f9041f1b30081aea49da0ecb",
+      "sha2": "dfd70f701ea01e52c0bddce4114f60738cf611aa31ccf44dc062bee9984268e2"
+    }
+  ]
+}
+

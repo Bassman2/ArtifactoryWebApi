@@ -1,0 +1,16 @@
+﻿namespace ArtifactoryWebApi.Service.Model;
+
+[DebuggerDisplay("{Uri}, Num: {Files.Count}")]
+internal class StorageListModel
+{
+    [JsonPropertyName("uri")]
+    public Uri? Uri { get; set; }
+
+    [JsonPropertyName("created")]
+    public DateTime? Created { get; set; }
+
+    [JsonPropertyName("files")]
+    public IEnumerable<FileModel>? Files { get; set; }
+
+
+}
