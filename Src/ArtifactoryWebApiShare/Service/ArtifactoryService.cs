@@ -270,10 +270,10 @@ internal class ArtifactoryService(Uri host, string apiKey) : JsonService(host, S
         ArgumentNullException.ThrowIfNullOrEmpty(filePath, nameof(filePath));
 
         var req = new MultipartFormDataContent();
-        using var stream = System.IO.File.Open(filePath, FileMode.Open, FileAccess.Read);
+        using var stream = System.IO.File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
         string filename = System.IO.Path.GetFileName(path);
         req.Add(new StreamContent(stream), "file", filename);
-        string url = CombineUrl(apiPrefix, repo, path);
+        string url = CombineUrl(urlPrefix, repo, path);
         await PutAsync(url, req, cancellationToken);
     }
 
@@ -285,7 +285,7 @@ internal class ArtifactoryService(Uri host, string apiKey) : JsonService(host, S
         var req = new MultipartFormDataContent();
         string filename = System.IO.Path.GetFileName(path);
         req.Add(new StreamContent(stream), "file", filename);
-        string url = CombineUrl(apiPrefix, repo, path);
+        string url = CombineUrl(urlPrefix, repo, path);
         await PutAsync(url, req, cancellationToken);
     }
 
