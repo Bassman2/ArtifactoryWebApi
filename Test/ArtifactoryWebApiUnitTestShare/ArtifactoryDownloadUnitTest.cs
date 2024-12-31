@@ -1,7 +1,7 @@
 ﻿namespace ArtifactoryWebApiUnitTest;
 
 [TestClass]
-public class ArtifactoryMoveUnitTest : ArtifactoryBaseUnitTest
+public class ArtifactoryDownloadUnitTest : ArtifactoryBaseUnitTest
 {
     [TestMethod]
     public async Task TestMethodDownloadUrlFileAsync()

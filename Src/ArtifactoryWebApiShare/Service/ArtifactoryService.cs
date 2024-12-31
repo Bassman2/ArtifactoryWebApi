@@ -263,19 +263,30 @@ internal class ArtifactoryService(Uri host, string apiKey) : JsonService(host, S
         return await GetFromStreamAsync(url.ToString(), cancellationToken);
     }
 
-    public async Task UploadFileAsync(string repo, string path, string fileName, string filePath, CancellationToken cancellationToken)
+    public async Task UploadFileAsync(string repo, string path, string filePath, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNullOrEmpty(repo, nameof(repo));
+        ArgumentNullException.ThrowIfNullOrEmpty(path, nameof(path));
         ArgumentNullException.ThrowIfNullOrEmpty(filePath, nameof(filePath));
-        ArgumentNullException.ThrowIfNullOrEmpty(fileName, nameof(fileName));
 
         var req = new MultipartFormDataContent();
-
         using var stream = System.IO.File.Open(filePath, FileMode.Open, FileAccess.Read);
-        req.Add(new StreamContent(stream), "file", fileName);
-        string url = CombineUrl(apiPrefix, repo, path, fileName);
+        string filename = System.IO.Path.GetFileName(path);
+        req.Add(new StreamContent(stream), "file", filename);
+        string url = CombineUrl(apiPrefix, repo, path);
         await PutAsync(url, req, cancellationToken);
+    }
 
+    public async Task UploadFileAsync(string repo, string path, Stream stream, CancellationToken cancellationToken)
+    {
+        ArgumentNullException.ThrowIfNullOrEmpty(repo, nameof(repo));
+        ArgumentNullException.ThrowIfNullOrEmpty(path, nameof(path));
+
+        var req = new MultipartFormDataContent();
+        string filename = System.IO.Path.GetFileName(path);
+        req.Add(new StreamContent(stream), "file", filename);
+        string url = CombineUrl(apiPrefix, repo, path);
+        await PutAsync(url, req, cancellationToken);
     }
 
     #endregion

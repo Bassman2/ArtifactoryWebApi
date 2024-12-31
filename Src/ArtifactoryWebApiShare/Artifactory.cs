@@ -240,14 +240,21 @@ public sealed class Artifactory : IDisposable
         return await service.GetFileStreamAsync(url, cancellationToken);
     }
 
-    public async Task UploadFileAsync(string repo, string path, string fileName, string filePath, CancellationToken cancellationToken = default)
+    public async Task UploadFileAsync(string repo, string path, string filePath, CancellationToken cancellationToken = default)
     { 
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        await service.UploadFileAsync(repo, path, fileName, filePath, cancellationToken);
+        await service.UploadFileAsync(repo, path, filePath, cancellationToken);
     }
-    
+
+    public async Task UploadFileAsync(string repo, string path, Stream fileStream, CancellationToken cancellationToken = default)
+    {
+        WebServiceException.ThrowIfNullOrNotConnected(service);
+
+        await service.UploadFileAsync(repo, path, fileStream, cancellationToken);
+    }
+
     #endregion
 
-   
+
 }

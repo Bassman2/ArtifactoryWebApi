@@ -6,10 +6,7 @@ namespace ArtifactoryWebApiUnitTest;
 public abstract class ArtifactoryBaseUnitTest
 {
     protected static readonly CultureInfo culture = new CultureInfo("en-US");
-    //protected const string storeKey = "artifactory";
-    //protected const string testRepoKey = "asterix2_libs-releases-maven-denue";
-    //protected const PackageType testRepoType = PackageType.Maven;
-
+    
     protected const string storeKey = "artifactory-trial";
     protected const string testRepoKey = "local-generic-test";
     protected const PackageType testRepoType = PackageType.Generic;
@@ -23,5 +20,9 @@ public abstract class ArtifactoryBaseUnitTest
 
     protected static readonly Uri baseUri = new(testHost);
     protected static readonly Uri apiUri = new(baseUri, "rest/api/2/");
+
+    protected static readonly string repoKeyDynamic = "local-generic-test-dynamic";
+    protected static readonly string repoKeyFix = "local-generic-test-fix";
+
 
 }
