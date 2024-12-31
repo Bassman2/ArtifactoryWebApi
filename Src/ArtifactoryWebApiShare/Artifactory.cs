@@ -1,4 +1,6 @@
-﻿namespace ArtifactoryWebApi;
+﻿using System.Linq;
+
+namespace ArtifactoryWebApi;
 
 public sealed class Artifactory : IDisposable
 {
@@ -72,21 +74,34 @@ public sealed class Artifactory : IDisposable
         return res.CastModel<Repository>(service);
     }
 
-    public async Task<RepositoryInfo?> GetRepositoryAsync(string repoKey, CancellationToken cancellationToken = default)
+    public async Task<RepositoryConfiguration?> GetRepositoryConfigurationAsync(string repoKey, CancellationToken cancellationToken = default)
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetRepositoryAsync(repoKey, cancellationToken);
-        return res.CastModel<RepositoryInfo>();
+        var res = await service.GetRepositoryConfigurationAsync(repoKey, cancellationToken);
+        return res.CastModel<RepositoryConfiguration>();
     }
 
-    public async Task<Repository?> CreateRepositoryAsync(string repoKey, CancellationToken cancellationToken = default)
-    {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+    //public async Task<Dictionary<string, IEnumerable<RepositoryConfiguration>>?> GetAllRepositoryConfigurationsAsync(CancellationToken cancellationToken = default)
+    //{
+    //    WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.CreateRepositoryAsync(repoKey, cancellationToken);
-        return res.CastModel<Repository>(service);
-    }
+    //    var res = await service.GetAllRepositoryConfigurationsAsync(cancellationToken);
+
+    //    Dictionary<string, IEnumerable<RepositoryConfiguration>>? x = res?.Select(static i => new { i.Key, Value = i.Value.CastModel<RepositoryConfiguration>() }).ToDictionary<string, IEnumerable<RepositoryConfiguration>>(i => i.Key, i => i.Value);
+
+    //    return x;
+    //    //.ToDictionary<string, IEnumerable<RepositoryConfiguration>>(i => i.Key, i => i.Value.CastModel<RepositoryConfiguration>());
+    //    //return res.CastModel<RepositoryConfiguration>();
+    //}
+
+    //public async Task<Repository?> CreateRepositoryAsync(string repoKey, RepositoryType repositoryType, PackageType packageType, string description, CancellationToken cancellationToken = default)
+    //{
+    //    WebServiceException.ThrowIfNullOrNotConnected(service);
+
+    //    var res = await service.CreateRepositoryAsync(repoKey, repositoryType, packageType, description, cancellationToken);
+    //    return res.CastModel<Repository>(service);
+    //}
 
     public async Task DeleteRepositoryAsync(string repoKey, CancellationToken cancellationToken = default)
     {

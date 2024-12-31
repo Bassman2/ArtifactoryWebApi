@@ -16,7 +16,7 @@
 [JsonSerializable(typeof(MessagesRoot))]
 [JsonSerializable(typeof(ProjectModel))]
 [JsonSerializable(typeof(RepositoryModel))]
-[JsonSerializable(typeof(RepositoryInfoModel))]
+[JsonSerializable(typeof(RepositoryConfigurationModel))]
 [JsonSerializable(typeof(StorageModel))]
 [JsonSerializable(typeof(IEnumerable<RepositoryModel>))]
 [JsonSerializable(typeof(StorageStatsModel))]

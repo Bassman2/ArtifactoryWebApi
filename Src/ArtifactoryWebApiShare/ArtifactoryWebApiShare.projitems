@@ -18,8 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)StorageStats.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MdTimestamps.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RepositoriesSummary.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RepositoryInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\RepositoryInfoModel.cs" />
+    <Compile Include="..\ArtifactoryWebApiShare\RepositoryConfiguration.cs" />
+    <Compile Include="..\ArtifactoryWebApiShare\Service\Model\RepositoryConfigurationModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\StorageModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Storage.cs" />
     <Compile Include="..\ArtifactoryWebApiShare\BinariesSummary.cs" />

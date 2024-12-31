@@ -1,11 +1,4 @@
-﻿using System.Buffers.Text;
-using System.IO;
-using System.Threading;
-
-namespace ArtifactoryWebApi.Service;
-
-
-// https://trialmjgn5z.jfrog.io/ui/login/
+﻿namespace ArtifactoryWebApi.Service;
 
 // https://jfrog.com/help/r/jfrog-rest-apis/get-folder-info
 
@@ -63,22 +56,43 @@ internal class ArtifactoryService(Uri host, string apiKey) : JsonService(host, S
         return res;
     }
 
-    public async Task<RepositoryInfoModel?> GetRepositoryAsync(string repoKey,  CancellationToken cancellationToken)
+    public async Task<RepositoryConfigurationModel?> GetRepositoryConfigurationAsync(string repoKey,  CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNullOrWhiteSpace(repoKey, nameof(repoKey));
 
-        var res = await GetFromJsonAsync<RepositoryInfoModel>($"/artifactory/api/repositories/{repoKey}", cancellationToken);
+        var res = await GetFromJsonAsync<RepositoryConfigurationModel>($"/artifactory/api/repositories/{repoKey}", cancellationToken);
         return res;
     }
 
-    public async Task<RepositoryModel?> CreateRepositoryAsync(string repoKey, CancellationToken cancellationToken)
+    public async Task<Dictionary<string, IEnumerable<RepositoryConfigurationModel>>?> GetAllRepositoryConfigurationsAsync(CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<Dictionary<string, IEnumerable<RepositoryConfigurationModel>>>($"/artifactory/api/repositories/configurations", cancellationToken);
+        return res;
+    }
+
+    public async Task<RepositoryModel?> CreateRepositoryAsync(string repoKey, RepositoryType repositoryType, PackageType packageType, string description, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNullOrWhiteSpace(repoKey, nameof(repoKey));
 
-        var create = new RepositoryModel() { Key = repoKey };
+        //var create = new RepositoryModel() 
+        //{ 
+        //    Key = repoKey,
+        //    Type = repositoryType,
+        //    PackageType = packageType,
+        //    Description = description,
+        //    Url = new Uri(this.Host, $"/artifactory/{repoKey}")
+        //};
 
-        var res = await PutAsJsonAsync<RepositoryModel, RepositoryModel>($"/artifactory/api/repositories/{repoKey}", create, cancellationToken);
-        return res;
+        var create = new RepositoryConfigurationModel()
+        {
+            Key = repoKey,
+            RClass = repositoryType.ToString().ToLower(),
+            PackageType = packageType,
+            Description = description,
+        };
+
+        var res = await PutAsJsonAsync<RepositoryConfigurationModel, RepositoryConfigurationModel>($"/artifactory/api/repositories/{repoKey}", create, cancellationToken);
+        return null;
     }
 
     public async Task DeleteRepositoryAsync(string repoKey, CancellationToken cancellationToken)
@@ -258,7 +272,6 @@ internal class ArtifactoryService(Uri host, string apiKey) : JsonService(host, S
     public async Task<System.IO.Stream> GetFileStreamAsync(Uri url, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNullOrEmpty(url.ToString(), nameof(url));
-        // ArgumentNullException.ThrowIfNullOrEmpty(filePath, nameof(filePath));
 
         return await GetFromStreamAsync(url.ToString(), cancellationToken);
     }

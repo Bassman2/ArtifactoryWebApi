@@ -14,7 +14,7 @@ public class ArtifactoryStorageInfoUnitTest : ArtifactoryBaseUnitTest
         var repositoriesSummary = storageInfo.RepositoriesSummaryList.FirstOrDefault(s => s.RepoKey == "local-generic-test");
         Assert.IsNotNull(repositoriesSummary);
         Assert.AreEqual("local-generic-test", repositoriesSummary.RepoKey, nameof(repositoriesSummary.RepoKey));
-        Assert.AreEqual(RepositoryType.Local, repositoriesSummary.RepoType, nameof(repositoriesSummary.RepoType));
+        Assert.AreEqual(RepositoryType.LOCAL, repositoriesSummary.RepoType, nameof(repositoriesSummary.RepoType));
         Assert.AreEqual(1, repositoriesSummary.FoldersCount, nameof(repositoriesSummary.FoldersCount));
         Assert.AreEqual(2, repositoriesSummary.FilesCount, nameof(repositoriesSummary.FilesCount));
         Assert.AreEqual("6.16 MB", repositoriesSummary.UsedSpace, nameof(repositoriesSummary.UsedSpace));
@@ -52,7 +52,7 @@ public class ArtifactoryStorageInfoUnitTest : ArtifactoryBaseUnitTest
         var repositoriesSummary = storageInfo.RepositoriesSummaryList.FirstOrDefault(s => s.RepoKey == "local-generic-test");
         Assert.IsNotNull(repositoriesSummary);
         Assert.AreEqual("local-generic-test", repositoriesSummary.RepoKey, nameof(repositoriesSummary.RepoKey));
-        Assert.AreEqual(RepositoryType.Local, repositoriesSummary.RepoType, nameof(repositoriesSummary.RepoType));
+        Assert.AreEqual(RepositoryType.LOCAL, repositoriesSummary.RepoType, nameof(repositoriesSummary.RepoType));
         Assert.AreEqual(1, repositoriesSummary.FoldersCount, nameof(repositoriesSummary.FoldersCount));
         Assert.AreEqual(2, repositoriesSummary.FilesCount, nameof(repositoriesSummary.FilesCount));
         Assert.AreEqual("6.16 MB", repositoriesSummary.UsedSpace, nameof(repositoriesSummary.UsedSpace));

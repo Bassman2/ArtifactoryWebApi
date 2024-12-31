@@ -4,7 +4,7 @@
 public enum RepositoryType
 {
     [EnumMember(Value = "LOCAL")]
-    Local,
+    LOCAL,
 
     [EnumMember(Value = "REMOTE")]
     Remote,

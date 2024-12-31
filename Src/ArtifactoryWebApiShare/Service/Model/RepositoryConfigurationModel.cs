@@ -1,6 +1,6 @@
 ﻿namespace ArtifactoryWebApi.Service.Model;
 
-internal class RepositoryInfoModel
+internal class RepositoryConfigurationModel
 {
     [JsonPropertyName("key")]
     public string? Key { get; set; }

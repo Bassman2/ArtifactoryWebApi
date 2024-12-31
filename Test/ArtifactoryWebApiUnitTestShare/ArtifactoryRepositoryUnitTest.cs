@@ -16,24 +16,63 @@ public class ArtifactoryRepositoryUnitTest : ArtifactoryBaseUnitTest
         Assert.IsNotNull(repo);
         Assert.AreEqual(testRepoKey, repo.Key, nameof(repo.Key));
         Assert.AreEqual("", repo.Description, nameof(repo.Description));
-        Assert.AreEqual(RepositoryType.Local, repo.Type, nameof(repo.Type));
+        Assert.AreEqual(RepositoryType.LOCAL, repo.Type, nameof(repo.Type));
         Assert.AreEqual(new Uri(new Uri(testHost), $"/artifactory/{testRepoKey}"), repo.Url, nameof(repo.Url));
         Assert.AreEqual(testRepoType, repo.PackageType, nameof(repo.PackageType));
     }
 
     [TestMethod]
-    public async Task TestMethodGetRepositoryAsync()
+    public async Task TestMethodGetRepositoryConfigurationAsync()
     {
         using var artifactory = new Artifactory(storeKey);
-        var repo = await artifactory.GetRepositoryAsync(testRepoKey);
+        var repo = await artifactory.GetRepositoryConfigurationAsync(testRepoKey);
 
         Assert.IsNotNull(repo);
         Assert.AreEqual(testRepoKey, repo.Key, nameof(repo.Key));
         Assert.AreEqual("", repo.Description, nameof(repo.Description));
-        //Assert.AreEqual(RepositoryType.Local, repo.Type, nameof(repo.Type));
+        //Assert.AreEqual(RepositoryType.LOCAL, repo.Type, nameof(repo.Type));
         //Assert.AreEqual(new Uri(new Uri(testHost), $"/artifactory/{testRepoKey}"), repo..Url, nameof(repo.Url));
         Assert.AreEqual(testRepoType, repo.PackageType, nameof(repo.PackageType));
     }
+
+    //[TestMethod]
+    //public async Task TestMethodGetAllRepositoryConfigurationsAsync()
+    //{
+    //    using var artifactory = new Artifactory(storeKey);
+    //    var repo = await artifactory.GetAllRepositoryConfigurationsAsync();
+
+    //    Assert.IsNotNull(repo);
+    //    Assert.AreEqual(testRepoKey, repo.Key, nameof(repo.Key));
+    //    Assert.AreEqual("", repo.Description, nameof(repo.Description));
+    //    //Assert.AreEqual(RepositoryType.LOCAL, repo.Type, nameof(repo.Type));
+    //    //Assert.AreEqual(new Uri(new Uri(testHost), $"/artifactory/{testRepoKey}"), repo..Url, nameof(repo.Url));
+    //    Assert.AreEqual(testRepoType, repo.PackageType, nameof(repo.PackageType));
+    //}
+
+    //[TestMethod]
+    //public async Task TestMethodCreateRepositoryAsync()
+    //{
+    //    string repoKeyCreate = "local-generic-create";
+
+    //    using var artifactory = new Artifactory(storeKey);
+
+    //    var repo = await artifactory.CreateRepositoryAsync(repoKeyCreate, RepositoryType.LOCAL, PackageType.Generic, "Creation test repository");
+
+    //    Assert.IsNotNull(repo);
+    //    Assert.AreEqual(testRepoKey, repo.Key, nameof(repo.Key));
+    //    Assert.AreEqual("", repo.Description, nameof(repo.Description));
+    //    //Assert.AreEqual(RepositoryType.LOCAL, repo.Type, nameof(repo.Type));
+    //    //Assert.AreEqual(new Uri(new Uri(testHost), $"/artifactory/{testRepoKey}"), repo..Url, nameof(repo.Url));
+    //    Assert.AreEqual(testRepoType, repo.PackageType, nameof(repo.PackageType));
+
+    //    bool exist = await artifactory.ExistsRepositoryAsync(repoKeyCreate);
+    //    Assert.IsTrue(exist);
+
+    //    await artifactory.DeleteRepositoryAsync(repoKeyCreate);
+
+    //    exist = await artifactory.ExistsRepositoryAsync(repoKeyCreate);
+    //    Assert.IsFalse(exist);
+    //}
 
     /*
     [TestMethod]

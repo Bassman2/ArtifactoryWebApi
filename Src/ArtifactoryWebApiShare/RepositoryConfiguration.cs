@@ -1,9 +1,8 @@
 ﻿namespace ArtifactoryWebApi;
 
-public class RepositoryInfo
-
+public class RepositoryConfiguration
 {
-    internal RepositoryInfo(RepositoryConfigurationModel model)
+    internal RepositoryConfiguration(RepositoryConfigurationModel model)
     {
         Key = model.Key;
         PackageType = model.PackageType;
