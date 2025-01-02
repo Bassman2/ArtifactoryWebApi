@@ -37,6 +37,8 @@ jobs:
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
+      with:
+        source-root: main
 
     - name: Add SignKeys
       uses: Bassman2/SignKey@v1
@@ -55,3 +57,5 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
+      with:
+        source-root: "../../results"
