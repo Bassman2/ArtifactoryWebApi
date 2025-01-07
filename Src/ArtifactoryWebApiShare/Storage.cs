@@ -4,8 +4,8 @@ public class Storage
 {
     internal Storage(StorageModel model)
     {
-        this.Repo = model.Repo!;
-        this.Path = model.Path!;
+        this.Repo = model.Repo;
+        this.Path = model.Path;
         this.Created = model.Created;
         this.CreatedBy = model.CreatedBy;
         this.LastModified = model.LastModified;
@@ -19,7 +19,7 @@ public class Storage
         this.Children = model.Children.CastModel<Child>();
         this.Uri = model.Uri;
 
-        this.Name = model.Uri?.ToString();
+        this.Name = model.Path?.Substring(model.Path.LastIndexOf('/') + 1);
     }
 
     public string? Name { get; }
