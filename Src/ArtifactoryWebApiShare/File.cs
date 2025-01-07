@@ -12,7 +12,11 @@ public class File
         Sha1 = model.Sha1;
         Sha2 = model.Sha2;
         MdTimestamps = model.MdTimestamps.CastModel<MdTimestamps>();
+
+        Name = model.Uri?.Substring(model.Uri.LastIndexOf('/') + 1);
     }
+
+    public string? Name { get; }
 
     // not a uri only "/folder/file.xxx"
     public string? Uri { get; }

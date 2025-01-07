@@ -18,7 +18,11 @@ public class Storage
         this.OriginalChecksums = model.OriginalChecksums.CastModel<Checksums>();
         this.Children = model.Children.CastModel<Child>();
         this.Uri = model.Uri;
+
+        this.Name = model.Uri?.ToString();
     }
+
+    public string? Name { get; }
 
     public string? Repo { get; }
 

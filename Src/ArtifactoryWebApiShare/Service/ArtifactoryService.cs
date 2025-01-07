@@ -10,7 +10,7 @@ internal class ArtifactoryService(Uri host, string apiKey) : JsonService(host, S
 
     // application/json (application/vnd.org.jfrog.artifactory.storage.ItemCreated+json)
 
-    protected override string? AuthenticationTestUrl => "/access/api/v1/system/ping";
+    protected override string? AuthenticationTestUrl => null; //"/access/api/v1/system/ping";
 
     protected override async Task ErrorHandlingAsync(HttpResponseMessage response, string memberName, CancellationToken cancellationToken)
     {
