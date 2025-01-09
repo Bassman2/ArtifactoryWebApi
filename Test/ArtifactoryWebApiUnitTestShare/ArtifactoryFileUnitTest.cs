@@ -6,7 +6,7 @@ public class ArtifactoryFileUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetFileInfoAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var fileInfo = await artifactory.GetFileInfoAsync("local-generic-test-fix", "/mixed/img-v001.jpg");
 
         Assert.IsNotNull(fileInfo);
@@ -40,7 +40,7 @@ public class ArtifactoryFileUnitTest : ArtifactoryBaseUnitTest
     public async Task TestMethodGetFileListRootAsync()
     {
         // /artifactory/api/storage/local-generic-test-fix?list&deep=1&depth=10&listFolders=1&mdTimestamps=1&includeRootPath=1
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var list = await artifactory.GetFileListAsync("local-generic-test-fix", "/", true, 10, true, true, true);
 
         Assert.IsNotNull(list);
@@ -78,7 +78,7 @@ public class ArtifactoryFileUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetFileListMixedAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var list = await artifactory.GetFileListAsync("local-generic-test-fix", "mixed", true, 10, true, true, true);
 
         Assert.IsNotNull(list);
@@ -99,7 +99,7 @@ public class ArtifactoryFileUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetFileStatisticsAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var stats = await artifactory.GetFileStatisticsAsync("local-generic-test-fix", "mixed/img-v001.jpg");
 
         Assert.IsNotNull(stats);
@@ -114,7 +114,7 @@ public class ArtifactoryFileUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodExistFileAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var exists = await artifactory.ExistsAsync("local-generic-test-fix", "mixed/img-v001.jpg");
         var notExists = await artifactory.ExistsAsync("local-generic-test-fix", "mixed/img-v001_xxx.jpg");
 

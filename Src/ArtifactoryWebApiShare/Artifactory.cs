@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿
 
 namespace ArtifactoryWebApi;
 
@@ -6,17 +6,13 @@ public sealed class Artifactory : IDisposable
 {
     private ArtifactoryService? service;
 
-    public Artifactory(string storeKey)
-    {
-        var key = WebServiceClient.Store.KeyStore.Key(storeKey)!;
-        string host = key.Host!;
-        string token = key.Token!;
-        service = new(new Uri(host), token);
-    }
+    public Artifactory(string storeKey, string appName)
+        : this(new Uri(KeyStore.Key(storeKey)?.Host!), KeyStore.Key(storeKey)!.Token!, appName)
+    { }
 
-    public Artifactory(Uri uri, string apiKey)
+    public Artifactory(Uri host, string token, string appName)
     {
-        service = new(uri, apiKey);
+        service = new(host, new ApiKeyAuthenticator("X-JFrog-Art-Api", token), appName);
     }
 
     public void Dispose()

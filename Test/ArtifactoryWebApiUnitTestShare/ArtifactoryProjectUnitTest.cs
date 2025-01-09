@@ -6,7 +6,7 @@ public class ArtifactoryProjectUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetProjectsAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var res = await artifactory.GetProjectsAsync();
 
         var projects = res?.ToList();
@@ -29,7 +29,7 @@ public class ArtifactoryProjectUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetProjectAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var project = await artifactory.GetProjectAsync("project-a");
 
         
@@ -51,7 +51,7 @@ public class ArtifactoryProjectUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodCreateAndDeleteProjectAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
 
         var created = await artifactory.CreateProjectAsync("project-x", "xxxx", "xxxxxxxx");
         Assert.IsNotNull(created);

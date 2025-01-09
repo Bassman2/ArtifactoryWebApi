@@ -3,7 +3,8 @@
 // https://jfrog.com/help/r/jfrog-rest-apis/get-folder-info
 
 
-internal class ArtifactoryService(Uri host, string apiKey) : JsonService(host, SourceGenerationContext.Default, new ApiKeyAuthenticator("X-JFrog-Art-Api", apiKey))
+internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, string appName)
+    : JsonService(host, authenticator, appName, SourceGenerationContext.Default)
 {
     private const string urlPrefix = "/artifactory";
     private const string apiPrefix = "/artifactory/api";

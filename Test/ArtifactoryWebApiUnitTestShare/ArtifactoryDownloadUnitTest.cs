@@ -8,7 +8,7 @@ public class ArtifactoryDownloadUnitTest : ArtifactoryBaseUnitTest
     {
         string localPath = @"D:\_Test\Artifactory\img-v001.jpg";
 
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
         System.IO.File.Delete(localPath);
         await artifactory.DownloadFileAsync(new Uri("https://trialmjgn5z.jfrog.io/artifactory/local-generic-test-dynamic/fix-folder/img-v001.jpg"), localPath);
@@ -23,7 +23,7 @@ public class ArtifactoryDownloadUnitTest : ArtifactoryBaseUnitTest
     {
         string localPath = @"D:\_Test\Artifactory\img-v002.jpg";
 
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
         System.IO.File.Delete(localPath);
         await artifactory.DownloadFileAsync("local-generic-test-dynamic", "/fix-folder/img-v001.jpg", localPath);
@@ -38,7 +38,7 @@ public class ArtifactoryDownloadUnitTest : ArtifactoryBaseUnitTest
     {
         string localPath = @"D:\_Test\Artifactory\img-v003.jpg";
 
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
         System.IO.File.Delete(localPath);
         using (var file = System.IO.File.Create(localPath))
@@ -56,7 +56,7 @@ public class ArtifactoryDownloadUnitTest : ArtifactoryBaseUnitTest
     {
         string localPath = @"D:\_Test\Artifactory\img-v004.jpg";
 
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
         System.IO.File.Delete(localPath);
 

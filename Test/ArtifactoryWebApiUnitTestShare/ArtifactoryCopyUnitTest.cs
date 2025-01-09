@@ -6,7 +6,7 @@ public class ArtifactoryCopyUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodCopyMoveDeleteFileAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
 
         await artifactory.CopyAsync(repoKeyDynamic, "/fix-folder/img-v001.jpg", "local-generic-test-dynamic", "/copy-folder/img-v001.jpg");
 

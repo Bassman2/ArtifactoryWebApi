@@ -10,7 +10,7 @@ public class ArtifactoryUploadUnitTest : ArtifactoryBaseUnitTest
     {
         string path = "/upload-folder/upload-file/img-v001.jpg";
 
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         
         await artifactory.UploadFileAsync(repoKeyDynamic, path, localPath);
 
@@ -29,7 +29,7 @@ public class ArtifactoryUploadUnitTest : ArtifactoryBaseUnitTest
     {
         string path = "/upload-folder/upload-file/img-v002.jpg";
 
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
 
         using var stream = System.IO.File.Open(localPath, FileMode.Open, FileAccess.Read, FileShare.Read);
 

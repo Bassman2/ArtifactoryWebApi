@@ -6,7 +6,7 @@ public class ArtifactoryStorageInfoUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetStorageInfoAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var storageInfo = await artifactory.GetStorageInfoAsync();
 
         Assert.IsNotNull(storageInfo);
@@ -43,7 +43,7 @@ public class ArtifactoryStorageInfoUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodRefreshStorageInfoAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         await artifactory.RefreshStorageInfoAsync();
         var storageInfo = await artifactory.GetStorageInfoAsync();
 

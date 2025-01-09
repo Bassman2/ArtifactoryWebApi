@@ -6,7 +6,7 @@ public class ArtifactoryRepositoryUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetRepositoriesAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var res = await artifactory.GetRepositoriesAsync();
 
         var repos = res?.ToList();
@@ -24,7 +24,7 @@ public class ArtifactoryRepositoryUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetRepositoryConfigurationAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var repo = await artifactory.GetRepositoryConfigurationAsync(testRepoKey);
 
         Assert.IsNotNull(repo);

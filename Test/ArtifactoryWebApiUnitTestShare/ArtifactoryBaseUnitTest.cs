@@ -10,7 +10,7 @@ public abstract class ArtifactoryBaseUnitTest
     protected const string storeKey = "artifactory-trial";
     protected const string testRepoKey = "local-generic-test";
     protected const PackageType testRepoType = PackageType.Generic;
-
+    protected const string appName = "UnitTest";
 
 
     protected static readonly string testHost = KeyStore.Key(storeKey)!.Host!;

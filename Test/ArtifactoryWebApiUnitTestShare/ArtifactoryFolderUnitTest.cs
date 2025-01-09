@@ -6,7 +6,7 @@ public class ArtifactoryFolderUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetFolderInfoRootAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var folderInfo = await artifactory.GetFolderInfoAsync("local-generic-test-fix", "/");
 
         Assert.IsNotNull(folderInfo, nameof(folderInfo));
@@ -40,7 +40,7 @@ public class ArtifactoryFolderUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetFolderInfoAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var folderInfo = await artifactory.GetFolderInfoAsync("local-generic-test-fix", "/mixed");
 
         Assert.IsNotNull(folderInfo, nameof(folderInfo));
@@ -72,7 +72,7 @@ public class ArtifactoryFolderUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodGetFolderInfoDeepAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var folderInfo = await artifactory.GetFolderInfoAsync("local-generic-test-fix", "/group/sun");
 
         Assert.IsNotNull(folderInfo, nameof(folderInfo));
@@ -103,7 +103,7 @@ public class ArtifactoryFolderUnitTest : ArtifactoryBaseUnitTest
     [TestMethod]
     public async Task TestMethodExistFileAsync()
     {
-        using var artifactory = new Artifactory(storeKey);
+        using var artifactory = new Artifactory(storeKey, appName);
         var exists = await artifactory.ExistsAsync("local-generic-test-fix", "mixed");
         var notExists = await artifactory.ExistsAsync("local-generic-test-fix", "mixed-xyz");
 
