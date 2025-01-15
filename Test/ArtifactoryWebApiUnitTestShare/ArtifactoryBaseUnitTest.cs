@@ -1,7 +1,4 @@
-﻿
-using WebServiceClient.Store;
-
-namespace ArtifactoryWebApiUnitTest;
+﻿namespace ArtifactoryWebApiUnitTest;
 
 public abstract class ArtifactoryBaseUnitTest
 {

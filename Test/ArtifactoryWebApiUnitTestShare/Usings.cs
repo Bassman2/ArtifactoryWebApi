@@ -4,6 +4,7 @@ global using System.Globalization;
 global using System.Text;
 
 global using WebServiceClient;
+global using WebServiceClient.Store;
 
 global using ArtifactoryWebApi;
 global using ArtifactoryWebApiUnitTest.Model;
