@@ -6,6 +6,8 @@
     <Nullable>enable</Nullable>
     <AssemblyName>ArtifactoryWebApi</AssemblyName>
     <RootNamespace>ArtifactoryWebApi</RootNamespace>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>Bassman.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
