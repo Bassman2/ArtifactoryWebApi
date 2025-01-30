@@ -1,6 +1,4 @@
-﻿
-
-namespace ArtifactoryWebApi;
+﻿namespace ArtifactoryWebApi;
 
 public sealed class Artifactory : IDisposable
 {
