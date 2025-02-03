@@ -45,7 +45,7 @@ internal class StorageModel
     #region Folder
 
     [JsonPropertyName("children")]
-    public IEnumerable<ChildModel>? Children { get; set; }
+    public List<ChildModel>? Children { get; set; }
 
     #endregion
 

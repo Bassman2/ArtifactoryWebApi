@@ -3,7 +3,7 @@
 internal class ErrorsModel
 {
     [JsonPropertyName("errors")]
-    public IEnumerable<ErrorModel>? Errors { get; set; }
+    public List<ErrorModel>? Errors { get; set; }
 
     public override string ToString()
     {

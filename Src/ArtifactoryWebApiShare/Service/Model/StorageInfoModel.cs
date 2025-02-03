@@ -3,7 +3,7 @@
 internal class StorageInfoModel
 {
     [JsonPropertyName("repositoriesSummaryList")]
-    public IEnumerable<RepositoriesSummaryModel>? RepositoriesSummaryList { get; set; }
+    public List<RepositoriesSummaryModel>? RepositoriesSummaryList { get; set; }
 
     [JsonPropertyName("fileStoreSummary")]
     public FileStoreSummaryModel? FileStoreSummary { get; set; }

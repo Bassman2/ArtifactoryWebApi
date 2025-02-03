@@ -2,7 +2,7 @@
 
 [JsonSourceGenerationOptions]
 
-[JsonSerializable(typeof(IEnumerable<ProjectModel>))]
+[JsonSerializable(typeof(List<ProjectModel>))]
 
 [JsonSerializable(typeof(ChecksumsModel))]
 [JsonSerializable(typeof(ChildModel))]
@@ -18,7 +18,7 @@
 [JsonSerializable(typeof(RepositoryModel))]
 [JsonSerializable(typeof(RepositoryConfigurationModel))]
 [JsonSerializable(typeof(StorageModel))]
-[JsonSerializable(typeof(IEnumerable<RepositoryModel>))]
+[JsonSerializable(typeof(List<RepositoryModel>))]
 [JsonSerializable(typeof(StorageStatsModel))]
 [JsonSerializable(typeof(StorageInfoModel))]
 [JsonSerializable(typeof(ErrorsModel))]

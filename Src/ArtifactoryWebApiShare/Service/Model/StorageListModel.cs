@@ -10,7 +10,7 @@ internal class StorageListModel
     public DateTime? Created { get; set; }
 
     [JsonPropertyName("files")]
-    public IEnumerable<FileModel>? Files { get; set; }
+    public List<FileModel>? Files { get; set; }
 
 
 }

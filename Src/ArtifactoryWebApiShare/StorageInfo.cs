@@ -10,7 +10,7 @@ public class StorageInfo
 
     }
 
-    public IEnumerable<RepositoriesSummary>? RepositoriesSummaryList { get; }
+    public List<RepositoriesSummary>? RepositoriesSummaryList { get; }
 
     public FileStoreSummary? FileStoreSummary { get; }
 

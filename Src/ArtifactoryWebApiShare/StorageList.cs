@@ -13,6 +13,6 @@ public class StorageList
 
     public DateTime? Created { get; }
 
-    public IEnumerable<File>? Files { get; }
+    public List<File>? Files { get; }
 
 }

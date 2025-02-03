@@ -54,7 +54,7 @@ public class Storage
 
     #region Folder
     
-    public IEnumerable<Child>? Children { get; }
+    public List<Child>? Children { get; }
 
     #endregion
 

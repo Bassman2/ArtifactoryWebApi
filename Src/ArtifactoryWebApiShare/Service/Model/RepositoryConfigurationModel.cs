@@ -102,7 +102,7 @@ internal class RepositoryConfigurationModel
     public bool PriorityResolution { get; set; }
 
     [JsonPropertyName("environments")]
-    public IEnumerable<string>? Environments { get; set; }
+    public List<string>? Environments { get; set; }
 
     [JsonPropertyName("handleReleases")]
     public bool HandleReleases { get; set; }
@@ -126,7 +126,7 @@ internal class RepositoryConfigurationModel
     public bool BlackedOut { get; set; }
 
     [JsonPropertyName("propertySets")]
-    public IEnumerable<string>? PropertySets { get; set; }
+    public List<string>? PropertySets { get; set; }
 
     [JsonPropertyName("archiveBrowsingEnabled")]
     public bool ArchiveBrowsingEnabled { get; set; }
@@ -137,8 +137,8 @@ internal class RepositoryConfigurationModel
     [JsonPropertyName("enableFileListsIndexing")]
     public bool EnableFileListsIndexing { get; set; }
 
-    [JsonPropertyName("yumRootDepth")]
-    public int yumRootDepth { get; set; }
+    [JsonPropertyName("YumRootDepth")]
+    public int YumRootDepth { get; set; }
 
     [JsonPropertyName("dockerTagRetention")]
     public int DockerTagRetention { get; set; }
