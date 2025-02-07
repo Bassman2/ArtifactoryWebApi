@@ -283,12 +283,15 @@ internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, strin
         ArgumentNullException.ThrowIfNullOrEmpty(path, nameof(path));
         ArgumentNullException.ThrowIfNullOrEmpty(filePath, nameof(filePath));
 
-        var req = new MultipartFormDataContent();
+        //var req = new MultipartFormDataContent();
         using var stream = System.IO.File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-        string filename = System.IO.Path.GetFileName(path);
-        req.Add(new StreamContent(stream), "file", filename);
-        string url = CombineUrl(urlPrefix, repo, path);
-        await PutAsync(url, req, cancellationToken);
+
+        await UploadFileAsync(repo, path, stream, cancellationToken);
+
+        //string filename = System.IO.Path.GetFileName(path);
+        //req.Add(new StreamContent(stream), "file", filename);
+        //string url = CombineUrl(urlPrefix, repo, path);
+        //await PutAsync(url, req, cancellationToken);
     }
 
     public async Task UploadFileAsync(string repo, string path, Stream stream, CancellationToken cancellationToken)
@@ -296,9 +299,13 @@ internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, strin
         ArgumentNullException.ThrowIfNullOrEmpty(repo, nameof(repo));
         ArgumentNullException.ThrowIfNullOrEmpty(path, nameof(path));
 
-        var req = new MultipartFormDataContent();
-        string filename = System.IO.Path.GetFileName(path);
-        req.Add(new StreamContent(stream), "file", filename);
+        // do not use MultipartFormDataContent
+
+        //var req = new MultipartFormDataContent();
+        //string filename = System.IO.Path.GetFileName(path);
+        //req.Add(new StreamContent(stream), "file", filename);
+
+        var req = new StreamContent(stream);
         string url = CombineUrl(urlPrefix, repo, path);
         await PutAsync(url, req, cancellationToken);
     }
