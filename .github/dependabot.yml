@@ -10,14 +10,16 @@ updates:
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 10
+    target-branch: "main"
+    registries: []
     additional-properties:
-    - name: "WebService"
+    - name: "WebServiceClient"
       repository: "https://github.com/Bassman2/WebServiceClient"
       directory: "/"
       package-ecosystem: "nuget"
       schedule:
         interval: "weekly"
-        open-pull-requests-limit: 10
+      open-pull-requests-limit: 10
 
  # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
