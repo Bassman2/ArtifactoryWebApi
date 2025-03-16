@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>ArtifactoryWebApiUnitTest</AssemblyName>
     <RootNamespace>ArtifactoryWebApiUnitTest</RootNamespace>
+    <Version>0.0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
