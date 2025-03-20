@@ -10,7 +10,11 @@ public sealed class Artifactory : IDisposable
 
     public Artifactory(Uri host, string token, string appName)
     {
-        service = new(host, new ApiKeyAuthenticator("X-JFrog-Art-Api", token), appName);
+        service = new(host, 
+            new MultiAuthenticator(
+                new BearerAuthenticator(token),
+                new ApiKeyAuthenticator("X-JFrog-Art-Api", token)), 
+            appName);
     }
 
     public void Dispose()
