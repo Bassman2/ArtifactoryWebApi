@@ -23,6 +23,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactoryWebApiUnitTest90
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtifactoryWebApiUnitTest80", "Test\ArtifactoryWebApiUnitTest80\ArtifactoryWebApiUnitTest80.csproj", "{0DA43B1C-E996-4C24-A4B1-B471407ECA91}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "ArtifactoryWebApiDoc", "Doc\ArtifactoryWebApiDoc\ArtifactoryWebApiDoc.shfbproj", "{2FBAACDD-89AC-4785-BE74-3D7A931682A8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{36B47222-FD25-4D2A-85EA-74E9D83475C2} = {36B47222-FD25-4D2A-85EA-74E9D83475C2}
+		{DC98D57B-7510-4AF8-B824-18DE12015125} = {DC98D57B-7510-4AF8-B824-18DE12015125}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +53,9 @@ Global
 		{0DA43B1C-E996-4C24-A4B1-B471407ECA91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DA43B1C-E996-4C24-A4B1-B471407ECA91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DA43B1C-E996-4C24-A4B1-B471407ECA91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FBAACDD-89AC-4785-BE74-3D7A931682A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBAACDD-89AC-4785-BE74-3D7A931682A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FBAACDD-89AC-4785-BE74-3D7A931682A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +68,7 @@ Global
 		{EC955E64-5331-475D-8D47-51FC2F0A9FA2} = {E2B4B80A-A730-4B6A-AFF5-DB757D3F02B4}
 		{0088023E-1DF9-4E7B-B707-566F3EE46AA6} = {E2B4B80A-A730-4B6A-AFF5-DB757D3F02B4}
 		{0DA43B1C-E996-4C24-A4B1-B471407ECA91} = {E2B4B80A-A730-4B6A-AFF5-DB757D3F02B4}
+		{2FBAACDD-89AC-4785-BE74-3D7A931682A8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {776AF36C-42AA-4BF5-94BC-8870DC2B7290}
