@@ -1,10 +1,18 @@
 ﻿namespace ArtifactoryWebApi;
 
+/// <summary>
+/// Represents a repository in the Artifactory system, including its metadata and configuration.
+/// </summary>
 [DebuggerDisplay("{Type} {PackageType} {Key}")]
 public class Repository
 {
     private readonly ArtifactoryService service;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Repository"/> class.
+    /// </summary>
+    /// <param name="service">The Artifactory service used to interact with the repository.</param>
+    /// <param name="model">The model containing the repository's data.</param>
     internal Repository(ArtifactoryService service, RepositoryModel model)
     {
         this.service = service;
@@ -16,14 +24,29 @@ public class Repository
         this.PackageType = model.PackageType;
     }
 
+    /// <summary>
+    /// Gets the unique key of the repository.
+    /// </summary>
     public string Key { get; }
 
+    /// <summary>
+    /// Gets the description of the repository.
+    /// </summary>
     public string? Description { get; }
 
+    /// <summary>
+    /// Gets the type of the repository (e.g., local, remote, virtual).
+    /// </summary>
     public RepositoryType Type { get; }
 
+    /// <summary>
+    /// Gets the URL of the repository.
+    /// </summary>
     public Uri? Url { get; }
 
+    /// <summary>
+    /// Gets the type of packages stored in the repository (e.g., Maven, Docker, NPM).
+    /// </summary>
     public PackageType PackageType { get; }
 
     //public async Task<IEnumerable<Item>?> GetItemsAsync(string path, CancellationToken cancellationToken = default)
