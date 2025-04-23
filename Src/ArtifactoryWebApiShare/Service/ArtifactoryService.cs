@@ -15,7 +15,10 @@ internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, strin
 
     protected override async Task ErrorHandlingAsync(HttpResponseMessage response, string memberName, CancellationToken cancellationToken)
     {
-        var error = await ReadFromJsonAsync<ErrorsModel>(response, cancellationToken);
+        JsonTypeInfo<ErrorsModel> jsonTypeInfoOut = (JsonTypeInfo<ErrorsModel>)context.GetTypeInfo(typeof(ErrorsModel))!;
+        var error = await response.Content.ReadFromJsonAsync<ErrorsModel>(jsonTypeInfoOut, cancellationToken);
+
+        //var error = await ReadFromJsonAsync<ErrorsModel>(response, cancellationToken);
         throw new WebServiceException(error?.ToString(), response.RequestMessage?.RequestUri, response.StatusCode, response.ReasonPhrase, memberName);
     }
 
