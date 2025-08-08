@@ -14,6 +14,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Artifactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Checksums.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Child.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\VersionMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)JFrogVersion.cs" />
     <Compile Include="..\ArtifactoryWebApiShare\StorageList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StorageStats.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MdTimestamps.cs" />
