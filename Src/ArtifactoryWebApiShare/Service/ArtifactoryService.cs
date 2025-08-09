@@ -1,4 +1,6 @@
-﻿namespace ArtifactoryWebApi.Service;
+﻿using System;
+
+namespace ArtifactoryWebApi.Service;
 
 // https://jfrog.com/help/r/jfrog-rest-apis/get-folder-info
 
@@ -314,6 +316,12 @@ internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, strin
     }
 
     #endregion
+
+    public async Task<VersionMode?> GetVersionAsync(CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<VersionMode>("/artifactory/api/system/version", cancellationToken);
+        return res;
+    }
 }
 
 /*
