@@ -43,12 +43,4 @@ public class ArtifactoryUploadUnitTest : ArtifactoryBaseUnitTest
         exists = await artifactory.ExistsAsync(repoKeyDynamic, path);
         Assert.IsFalse(exists);
     }
-
-    [TestMethod]
-    public async Task TestMethodGetVersionAsync()
-    {
-        using var artifactory = new Artifactory(storeKey, appName);
-
-        var version = await artifactory.GetVersionAsync();
-    }
 }

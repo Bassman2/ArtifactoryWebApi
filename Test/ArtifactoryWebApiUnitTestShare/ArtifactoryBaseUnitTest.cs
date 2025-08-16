@@ -4,7 +4,8 @@ public abstract class ArtifactoryBaseUnitTest
 {
     protected static readonly CultureInfo culture = new CultureInfo("en-US");
     
-    protected const string storeKey = "artifactory-trial";
+    //protected const string storeKey = "artifactory-trial";
+    protected const string storeKey = "artifactory";
     protected const string testRepoKey = "local-generic-test";
     protected const PackageType testRepoType = PackageType.Generic;
     protected const string appName = "UnitTest";

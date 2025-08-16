@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Threading;
 
 namespace ArtifactoryWebApi;
 
@@ -465,17 +466,26 @@ public sealed class Artifactory : IDisposable
     #endregion
 
     /// <summary>
-    /// Retrieves the version information of the connected JFrog service.
+    /// Retrieves the version information of the Artifactory system.
     /// </summary>
-    /// <param name="cancellationToken">A token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
-    /// <returns>A <see cref="JFrogVersion"/> object containing the version details of the JFrog service,  or <see
-    /// langword="null"/> if the version information could not be retrieved.</returns>
-    public async Task<JFrogVersion?> GetVersionAsync(CancellationToken cancellationToken = default)
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation. The task result contains the <see cref="ArtifactoryVersion"/> information, or null if not available.
+    /// </returns>
+    public async Task<ArtifactoryVersion?> GetVersionAsync(CancellationToken cancellationToken = default)
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
         var res = await service.GetVersionAsync(cancellationToken);
-        return res.CastModel<JFrogVersion>(); 
+        return res.CastModel<ArtifactoryVersion>(); 
     }
+
+    //public async Task GetXrayVersionAsync(CancellationToken cancellationToken = default)
+    //{
+    //    WebServiceException.ThrowIfNullOrNotConnected(service);
+
+    //    await service.GetXrayVersionAsync(cancellationToken);
+    //    //return res.CastModel<JFrogVersion>();
+    //}
 
 }

@@ -317,11 +317,21 @@ internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, strin
 
     #endregion
 
-    public async Task<VersionMode?> GetVersionAsync(CancellationToken cancellationToken)
+    public async Task<ArtifactoryVersionModel?> GetVersionAsync(CancellationToken cancellationToken)
     {
-        var res = await GetFromJsonAsync<VersionMode>("/artifactory/api/system/version", cancellationToken);
+        client?.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.org.jfrog.artifactory.system.Version+json");
+
+        var res = await GetFromJsonAsync<ArtifactoryVersionModel>("/artifactory/api/system/version", cancellationToken);
         return res;
     }
+
+    //public async Task<VersionMode?> GetXrayVersionAsync(CancellationToken cancellationToken)
+    //{
+    //    var res = await GetFromJsonAsync<VersionMode>("/access/api/v1/system/ping", cancellationToken);
+    //    return res;
+    //}
+
+    
 }
 
 /*

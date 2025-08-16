@@ -22,6 +22,7 @@
 [JsonSerializable(typeof(StorageStatsModel))]
 [JsonSerializable(typeof(StorageInfoModel))]
 [JsonSerializable(typeof(ErrorsModel))]
+[JsonSerializable(typeof(ArtifactoryVersionModel))]
 internal partial class SourceGenerationContext : JsonSerializerContext
 { }
 

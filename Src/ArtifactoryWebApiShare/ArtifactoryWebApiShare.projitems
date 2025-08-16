@@ -12,8 +12,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)AdminPrivileges.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Artifact.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Artifactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ArtifactoryVersion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Checksums.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Child.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ArtifactoryVersionModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\VersionMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)JFrogVersion.cs" />
     <Compile Include="..\ArtifactoryWebApiShare\StorageList.cs" />

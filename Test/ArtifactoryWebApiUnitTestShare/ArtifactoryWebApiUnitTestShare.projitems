@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ArtifactoryRepositoryUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ArtifactoryStorageInfoUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ArtifactoryUploadUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ArtifactoryVersionUnitTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ChildAssert.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\FileAssert.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
