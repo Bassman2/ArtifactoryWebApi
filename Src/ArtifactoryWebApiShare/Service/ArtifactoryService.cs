@@ -97,7 +97,7 @@ internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, strin
             Description = description,
         };
 
-        var res = await PutAsJsonAsync<RepositoryConfigurationModel, RepositoryConfigurationModel>($"/artifactory/api/repositories/{repoKey}", create, cancellationToken);
+        var res =await PutAsJsonAsync<RepositoryConfigurationModel, RepositoryConfigurationModel>($"/artifactory/api/repositories/{repoKey}", create, cancellationToken);
         return null;
     }
 
