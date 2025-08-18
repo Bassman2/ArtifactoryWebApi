@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AdminPrivileges.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Artifact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Artifactory2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Artifactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ArtifactoryVersion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Checksums.cs" />
