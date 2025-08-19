@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading;
-
-namespace ArtifactoryWebApi;
+﻿namespace ArtifactoryWebApi;
 
 /// <summary>
 /// Represents a client for interacting with the Artifactory API, providing methods for managing projects, repositories, storage, and more.
@@ -48,7 +44,8 @@ public sealed class Artifactory2 : JsonService
         //var error = await ReadFromJsonAsync<ErrorsModel>(response, cancellationToken);
         throw new WebServiceException(error?.ToString(), response.RequestMessage?.RequestUri, response.StatusCode, response.ReasonPhrase, memberName);
 
-    }
+    }
+
 
     #region Projects
 
@@ -568,7 +565,8 @@ public sealed class Artifactory2 : JsonService
         //client?.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.org.jfrog.artifactory.system.Version+json");
 
         var res = await GetFromJsonAsync<ArtifactoryVersionModel>("/artifactory/api/system/version", cancellationToken);
-        return res != null ? $"{res.Version}.{res.Revision}" : null;
+        //return res != null ? $"{res.Version}.{res.Revision}" : null;
+        return res?.Version ?? "0.0.0";
     }
 
     //public async Task<ArtifactoryVersion?> GetVersionAsync(CancellationToken cancellationToken = default)
