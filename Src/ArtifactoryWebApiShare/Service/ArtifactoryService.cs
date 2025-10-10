@@ -24,6 +24,20 @@ internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, strin
         throw new WebServiceException(error?.ToString(), response.RequestMessage?.RequestUri, response.StatusCode, response.ReasonPhrase, memberName);
     }
 
+    public override async Task<Version> GetVersionAsync(CancellationToken cancellationToken)
+    {
+        string ver = await GetVersionStringAsync(cancellationToken);
+        return new Version(ver);
+    }
+
+    public override async Task<string> GetVersionStringAsync(CancellationToken cancellationToken)
+    {
+        client?.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.org.jfrog.artifactory.system.Version+json");
+
+        var res = await GetFromJsonAsync<ArtifactoryVersionModel>("/artifactory/api/system/version", cancellationToken);
+        return $"{res!.Version}.{res.Revision}";
+    }
+
     #region Projects
 
     public async Task<IEnumerable<ProjectModel>?> GetProjectsAsync(CancellationToken cancellationToken)
@@ -317,13 +331,7 @@ internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, strin
 
     #endregion
 
-    public async Task<ArtifactoryVersionModel?> GetVersionAsync(CancellationToken cancellationToken)
-    {
-        client?.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.org.jfrog.artifactory.system.Version+json");
-
-        var res = await GetFromJsonAsync<ArtifactoryVersionModel>("/artifactory/api/system/version", cancellationToken);
-        return res;
-    }
+    
 
     //public async Task<VersionMode?> GetXrayVersionAsync(CancellationToken cancellationToken)
     //{
@@ -331,7 +339,7 @@ internal class ArtifactoryService(Uri host, IAuthenticator? authenticator, strin
     //    return res;
     //}
 
-    
+
 }
 
 /*
