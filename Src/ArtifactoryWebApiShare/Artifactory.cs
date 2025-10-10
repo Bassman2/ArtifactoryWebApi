@@ -1,51 +1,51 @@
-﻿using System.IO;
-using System.Threading;
-
-namespace ArtifactoryWebApi;
+﻿namespace ArtifactoryWebApi;
 
 /// <summary>
 /// Represents a client for interacting with the Artifactory API, providing methods for managing projects, repositories, storage, and more.
 /// </summary>
-public sealed class Artifactory : IDisposable
+public sealed class Artifactory : JsonService
 {
-    private ArtifactoryService? service;
+    private const string urlPrefix = "/artifactory";
+    private const string apiPrefix = "/artifactory/api";
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Artifactory"/> class using a store key and application name.
     /// </summary>
-    /// <param name="storeKey">The key to retrieve the host and token from the key store.</param>
-    /// <param name="appName">The name of the application.</param>
-    public Artifactory(string storeKey, string appName)
-        : this(new Uri(KeyStore.Key(storeKey)?.Host!), KeyStore.Key(storeKey)!.Token!, appName)
+    /// <param name="storeKey">The key used to store authentication or configuration data.</param>
+    /// <param name="appName">The name of the application using the GitHub API.</param>
+    public Artifactory(string storeKey, string appName) : base(storeKey, appName, SourceGenerationContext.Default)
     { }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Artifactory"/> class with the specified host, token, and application name.
+    /// Initializes a new instance of the <see cref="Artifactory"/> class using a host URI, an optional authenticator, and an application name.
     /// </summary>
-    /// <param name="host">The base URI of the Artifactory server.</param>
-    /// <param name="token">The authentication token for accessing the Artifactory API.</param>
-    /// <param name="appName">The name of the application.</param>
-    public Artifactory(Uri host, string token, string appName)
-    {
-        service = new(host, 
-            new MultiAuthenticator(
-                new BearerAuthenticator(token),
-                new ApiKeyAuthenticator("X-JFrog-Art-Api", token)), 
-            appName);
-    }
+    /// <param name="host">The base URI of the GitHub API host.</param>
+    /// <param name="authenticator">The authenticator used for API authentication, or <c>null</c> for unauthenticated access.</param>
+    /// <param name="appName">The name of the application using the GitHub API.</param>
+    public Artifactory(Uri host, IAuthenticator? authenticator, string appName) : base(host, authenticator, appName, SourceGenerationContext.Default)
+    { }
 
     /// <summary>
-    /// Releases the resources used by the <see cref="Artifactory"/> instance.
+    /// Gets the URL used to test authentication with the Artifactory API.
     /// </summary>
-    public void Dispose()
+    protected override string? AuthenticationTestUrl => "/artifactory/api/repositories"; //"/access/api/v1/system/ping";
+
+    /// <summary>
+    /// Handles errors returned from HTTP responses by reading the error content and throwing a <see cref="WebServiceException"/>.
+    /// </summary>
+    /// <param name="response">The HTTP response message containing the error.</param>
+    /// <param name="memberName">The name of the member where the error occurred.</param>
+    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    protected override async Task ErrorHandlingAsync(HttpResponseMessage response, string memberName, CancellationToken cancellationToken)
     {
-        if (this.service != null)
-        {
-            this.service.Dispose();
-            this.service = null;
-        }
-        GC.SuppressFinalize(this);
+        JsonTypeInfo<ErrorsModel> jsonTypeInfoOut = (JsonTypeInfo<ErrorsModel>)context.GetTypeInfo(typeof(ErrorsModel))!;
+        var error = await response.Content.ReadFromJsonAsync<ErrorsModel>(jsonTypeInfoOut, cancellationToken);
+        //var error = await ReadFromJsonAsync<ErrorsModel>(response, cancellationToken);
+        throw new WebServiceException(error?.ToString(), response.RequestMessage?.RequestUri, response.StatusCode, response.ReasonPhrase, memberName);
+
     }
+
 
     #region Projects
 
@@ -56,9 +56,9 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains a collection of projects.</returns>
     public async Task<IEnumerable<Project>?> GetProjectsAsync(CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        var res = await service.GetProjectsAsync(cancellationToken);
+        var res = await GetFromJsonAsync<IEnumerable<ProjectModel>>("/access/api/v1/projects", cancellationToken);
         return res.CastModel<Project>();
     }
 
@@ -70,9 +70,9 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains the project, or null if not found.</returns>
     public async Task<Project?> GetProjectAsync(string projectKey, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        var res = await service.GetProjectAsync(projectKey, cancellationToken);
+        var res = await GetFromJsonAsync<ProjectModel>($"/access/api/v1/projects/{projectKey}", cancellationToken);
         return res.CastModel<Project>();
     }
 
@@ -86,9 +86,17 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains the created project.</returns>
     public async Task<Project?> CreateProjectAsync(string projectKey, string displayName, string descriptions, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        var res = await service.CreateProjectAsync(projectKey, displayName, descriptions, cancellationToken);
+        var req = new ProjectModel
+        {
+            ProjectKey = projectKey,
+            DisplayName = displayName,
+            Description = descriptions,
+            AdminPrivileges = new AdminPrivilegesModel { ManageMembers = true, ManageResources = true, IndexResources = true },
+            StorageQuotaBytes = 1073741824           // "Project Quota cannot be lower than `1073741824` bytes. Input: 0"
+        };
+        var res = await PostAsJsonAsync<ProjectModel, ProjectModel>("/access/api/v1/projects", req, cancellationToken);
         return res.CastModel<Project>();
     }
 
@@ -100,9 +108,9 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task DeleteProjectAsync(string projectKey, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        await service.DeleteProjectAsync(projectKey, cancellationToken);
+        await DeleteAsync($"/access/api/v1/projects/{projectKey}", cancellationToken);
     }
 
     #endregion
@@ -116,10 +124,10 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains a collection of repositories.</returns>
     public async Task<IEnumerable<Repository>?> GetRepositoriesAsync(CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        var res = await service.GetRepositoriesAsync(cancellationToken);
-        return res.CastModel<Repository>(service);
+        var res = await GetFromJsonAsync<IEnumerable<RepositoryModel>>("/artifactory/api/repositories", cancellationToken);
+        return res.CastModel<Repository>(this);
     }
 
     /// <summary>
@@ -130,15 +138,17 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains the repository configuration, or null if not found.</returns>
     public async Task<RepositoryConfiguration?> GetRepositoryConfigurationAsync(string repoKey, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        var res = await service.GetRepositoryConfigurationAsync(repoKey, cancellationToken);
+        var res = await GetFromJsonAsync<RepositoryConfigurationModel>($"/artifactory/api/repositories/{repoKey}", cancellationToken);
         return res.CastModel<RepositoryConfiguration>();
     }
 
     //public async Task<Dictionary<string, IEnumerable<RepositoryConfiguration>>?> GetAllRepositoryConfigurationsAsync(CancellationToken cancellationToken = default)
     //{
-    //    WebServiceException.ThrowIfNullOrNotConnected(service);
+    //    WebServiceException.ThrowIfNotConnected(client);
+
+    //var res = await GetFromJsonAsync<Dictionary<string, IEnumerable<RepositoryConfigurationModel>>>($"/artifactory/api/repositories/configurations", cancellationToken);
 
     //    var res = await service.GetAllRepositoryConfigurationsAsync(cancellationToken);
 
@@ -151,11 +161,22 @@ public sealed class Artifactory : IDisposable
 
     //public async Task<Repository?> CreateRepositoryAsync(string repoKey, RepositoryType repositoryType, PackageType packageType, string description, CancellationToken cancellationToken = default)
     //{
-    //    WebServiceException.ThrowIfNullOrNotConnected(service);
+    //    WebServiceException.ThrowIfNotConnected(client);
 
     //    var res = await service.CreateRepositoryAsync(repoKey, repositoryType, packageType, description, cancellationToken);
     //    return res.CastModel<Repository>(service);
     //}
+
+    //var create = new RepositoryConfigurationModel()
+    //{
+    //    Key = repoKey,
+    //    RClass = repositoryType.ToString().ToLower(),
+    //    PackageType = packageType,
+    //    Description = description,
+    //};
+
+    //var res = await PutAsJsonAsync<RepositoryConfigurationModel, RepositoryConfigurationModel>($"/artifactory/api/repositories/{repoKey}", create, cancellationToken);
+
 
     /// <summary>
     /// Deletes a repository from the Artifactory system.
@@ -165,9 +186,10 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task DeleteRepositoryAsync(string repoKey, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(repoKey, nameof(repoKey));
 
-        await service.DeleteRepositoryAsync(repoKey, cancellationToken);
+        await DeleteAsync($"/artifactory/api/repositories/{repoKey}", cancellationToken);
     }
 
     /// <summary>
@@ -178,10 +200,12 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains the updated repository.</returns>
     public async Task<Repository?> UpdateRepositoryAsync(string repoKey, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(repoKey, nameof(repoKey));
 
-        var res = await service.UpdateRepositoryAsync(repoKey, cancellationToken);
-        return res.CastModel<Repository>(service);
+        var update = new RepositoryModel() { Key = repoKey };
+        var res = await PostAsJsonAsync<RepositoryModel, RepositoryModel>($"/artifactory/api/repositories/{repoKey}", update, cancellationToken);
+        return res.CastModel<Repository>(this);
     }
 
     /// <summary>
@@ -192,10 +216,11 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating whether the repository exists.</returns>
     public async Task<bool> ExistsRepositoryAsync(string repoKey, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(repoKey, nameof(repoKey));
 
-        var res = await service.ExistsRepositoryAsync(repoKey, cancellationToken);
-        return res;
+        var res = await GetFromJsonAsync<RepositoryModel>($"/artifactory/repositories/existence?projectKey={repoKey}", cancellationToken);
+        return res is not null;
     }
 
     #endregion
@@ -205,37 +230,41 @@ public sealed class Artifactory : IDisposable
     /// <summary>
     /// Retrieves information about a folder in the Artifactory system.
     /// </summary>
-    /// <param name="repo">The repository where the folder is located.</param>
+    /// <param name="repoKey">The repository where the folder is located.</param>
     /// <param name="path">The path of the folder within the repository.</param>
     /// <param name="cancellationToken">A token to cancel the operation.</param>
     /// <returns>A task that represents the asynchronous operation. The task result contains the folder information.</returns>
-    public async Task<Storage?> GetFolderInfoAsync(string repo, string path, CancellationToken cancellationToken = default)
+    public async Task<Storage?> GetFolderInfoAsync(string repoKey, string path, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(repoKey, nameof(repoKey));
+        ArgumentNullException.ThrowIfNull(path, nameof(path));
 
-        var res = await service.GetFolderInfoAsync(repo, path, cancellationToken);
+        var res = await GetFromJsonAsync<StorageModel>($"/artifactory/api/storage/{repoKey}/{path}", cancellationToken);
         return res.CastModel<Storage>();
     }
 
     /// <summary>
     /// Retrieves information about a file in the Artifactory system.
     /// </summary>
-    /// <param name="repo">The repository where the file is located.</param>
+    /// <param name="repoKey">The repository where the file is located.</param>
     /// <param name="path">The path of the file within the repository.</param>
     /// <param name="cancellationToken">A token to cancel the operation.</param>
     /// <returns>A task that represents the asynchronous operation. The task result contains the file information.</returns>
-    public async Task<Storage?> GetFileInfoAsync(string repo, string path, CancellationToken cancellationToken = default)
+    public async Task<Storage?> GetFileInfoAsync(string repoKey, string path, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(repoKey, nameof(repoKey));
+        ArgumentNullException.ThrowIfNull(path, nameof(path));
 
-        var res = await service.GetFileInfoAsync(repo, path, cancellationToken);
+        var res = await GetFromJsonAsync<StorageModel>($"/artifactory/api/storage/{repoKey}/{path}", cancellationToken);
         return res.CastModel<Storage>();
     }
 
     /// <summary>
     /// Retrieves a list of files in a specific storage location.
     /// </summary>
-    /// <param name="repo">The repository where the storage location is located.</param>
+    /// <param name="repoKey">The repository where the storage location is located.</param>
     /// <param name="path">The path of the storage location within the repository.</param>
     /// <param name="deep">Whether to perform a deep search.</param>
     /// <param name="depth">The depth of the search.</param>
@@ -244,11 +273,15 @@ public sealed class Artifactory : IDisposable
     /// <param name="includeRootPath">Whether to include the root path in the list.</param>
     /// <param name="cancellationToken">A token to cancel the operation.</param>
     /// <returns>A task that represents the asynchronous operation. The task result contains the list of files.</returns>
-    public async Task<StorageList?> GetFileListAsync(string repo, string path, bool deep, int depth, bool listFolders, bool mdTimestamps, bool includeRootPath, CancellationToken cancellationToken = default)
+    public async Task<StorageList?> GetFileListAsync(string repoKey, string path, bool deep, int depth, bool listFolders, bool mdTimestamps, bool includeRootPath, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrWhiteSpace(repoKey, nameof(repoKey));
+        ArgumentNullException.ThrowIfNull(path, nameof(path));
 
-        var res = await service.GetFileListAsync(repo, path, deep, depth, listFolders, mdTimestamps, includeRootPath, cancellationToken);
+        var requestUri = CombineUrl("/artifactory/api/storage", repoKey, path, ("list", ""), ("deep", deep ? 1 : 0), ("depth", depth), ("listFolders", listFolders ? 1 : 0), ("mdTimestamps", mdTimestamps ? 1 : 0), ("includeRootPath", includeRootPath ? 1 : 0));
+
+        var res = await GetFromJsonAsync<StorageListModel>(requestUri, cancellationToken);
         return res.CastModel<StorageList>();
     }
 
@@ -261,17 +294,25 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains the file statistics.</returns>
     public async Task<StorageStats?> GetFileStatisticsAsync(string repoKey, string path, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrEmpty(repoKey, nameof(repoKey));
+        ArgumentNullException.ThrowIfNull(path, nameof(path));
 
-        var res = await service.GetFileStatisticsAsync(repoKey, path, cancellationToken);
+        var res = await GetFromJsonAsync<StorageStatsModel>($"/artifactory/api/storage/{repoKey}/{path}?stats", cancellationToken);
         return res.CastModel<StorageStats>();
     }
 
     //public async Task<Item?> CreateDirectoryAsync(string repo, string path, string createdBy, CancellationToken cancellationToken = default)
     //{
-    //    WebServiceException.ThrowIfNullOrNotConnected(service);
+    //    WebServiceException.ThrowIfNotConnected(client);
 
-    //    var res = await service.CreateDirectoryAsync(repo, path, createdBy, cancellationToken);
+    //ArgumentNullException.ThrowIfNullOrEmpty(repo, nameof(repo));
+    //    ArgumentNullException.ThrowIfNullOrEmpty(path, nameof(path));
+    //    ArgumentNullException.ThrowIfNullOrEmpty(createdBy, nameof(createdBy));
+
+    //    string url = CombineUrl(urlPrefix, repo, path);
+    //var create = new DirectoryModel() { Uri = new Uri(Host, url), Repo = repo, Path = path, CreatedBy = createdBy, Created = DateTime.Now };
+    //var res = await PutAsJsonAsync<DirectoryModel, DirectoryModel>(url, create, cancellationToken);
     //    return res.CastModel<Item>(); 
     //}
 
@@ -287,9 +328,14 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task CopyAsync(string sourceRepo, string sourcePath, string destinationRepo, string destinationPath, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrEmpty(sourceRepo, nameof(sourceRepo));
+        ArgumentNullException.ThrowIfNullOrEmpty(sourcePath, nameof(sourcePath));
+        ArgumentNullException.ThrowIfNullOrEmpty(destinationRepo, nameof(destinationRepo));
+        ArgumentNullException.ThrowIfNullOrEmpty(destinationPath, nameof(destinationPath));
 
-        await service.CopyItemAsync(sourceRepo, sourcePath, destinationRepo, destinationPath, cancellationToken);
+        string url = CombineUrl(apiPrefix, "/copy", sourceRepo, sourcePath, ("to", CombineUrl(destinationRepo, destinationPath)));
+        await PostFromJsonAsync<MessagesRoot>(url, cancellationToken);
     }
 
     /// <summary>
@@ -303,23 +349,31 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task MoveAsync(string sourceRepo, string sourcePath, string destinationRepo, string destinationPath, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        ArgumentNullException.ThrowIfNullOrEmpty(sourceRepo, nameof(sourceRepo));
+        ArgumentNullException.ThrowIfNullOrEmpty(sourcePath, nameof(sourcePath));
+        ArgumentNullException.ThrowIfNullOrEmpty(destinationRepo, nameof(destinationRepo));
+        ArgumentNullException.ThrowIfNullOrEmpty(destinationPath, nameof(destinationPath));
 
-        await service.MoveItemAsync(sourceRepo, sourcePath, destinationRepo, destinationPath, cancellationToken);
+        string url = CombineUrl(apiPrefix, "/move", sourceRepo, sourcePath, ("to", CombineUrl(destinationRepo, destinationPath)));
+        await PostFromJsonAsync<MessagesRoot>(url, cancellationToken);
     }
 
     /// <summary>
     /// Deletes an item (file or folder) from a specified repository and path in the Artifactory system.
     /// </summary>
-    /// <param name="repo">The name of the repository where the item is located.</param>
+    /// <param name="repoKey">The name of the repository where the item is located.</param>
     /// <param name="path">The path of the item within the repository to be deleted.</param>
     /// <param name="cancellationToken">A token to cancel the operation.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    public async Task DeleteAsync(string repo, string path, CancellationToken cancellationToken = default)
+    public async Task DeleteAsync(string repoKey, string path, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        await service.DeleteItemAsync(repo, path, cancellationToken);
+        ArgumentNullException.ThrowIfNullOrEmpty(repoKey, nameof(repoKey));
+        ArgumentNullException.ThrowIfNull(path, nameof(path));
+
+        string url = CombineUrl(urlPrefix, repoKey, path);
+        await DeleteAsync(url, cancellationToken);
     }
 
     /// <summary>
@@ -331,9 +385,12 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating whether the item exists.</returns>
     public async Task<bool> ExistsAsync(string repo, string path, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrEmpty(repo, nameof(repo));
+        ArgumentNullException.ThrowIfNull(path, nameof(path));
 
-        var res = await service.ExistsAsync(repo, path, cancellationToken);
+        string url = CombineUrl("/artifactory/api/storage", repo, path);
+        var res = await FoundAsync(url, cancellationToken);
         return res;
     }
 
@@ -354,9 +411,9 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains the storage information.</returns>
     public async Task<StorageInfo?> GetStorageInfoAsync(CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        var res = await service.GetStorageInfoAsync(cancellationToken);
+        var res = await GetFromJsonAsync<StorageInfoModel>("/artifactory/api/storageinfo", cancellationToken);
         return res.CastModel<StorageInfo>();
     }
 
@@ -367,9 +424,9 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task RefreshStorageInfoAsync(CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        await service.RefreshStorageInfoAsync(cancellationToken);
+        await PostAsync("/artifactory/api/storageinfo/calculate", cancellationToken);
     }
 
     #endregion
@@ -386,9 +443,13 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task DownloadFileAsync(string repo, string path, string filePath, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrEmpty(repo, nameof(repo));
+        ArgumentNullException.ThrowIfNull(path, nameof(path));
+        ArgumentNullException.ThrowIfNullOrEmpty(filePath, nameof(filePath));
 
-        await service.DownloadFileAsync(repo, path, filePath, cancellationToken);
+        string url = CombineUrl(urlPrefix, repo, path);
+        await DownloadAsync(url, filePath, cancellationToken);
     }
 
     /// <summary>
@@ -401,9 +462,11 @@ public sealed class Artifactory : IDisposable
 
     public async Task DownloadFileAsync(Uri url, string filePath, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        await service.DownloadFileAsync(url, filePath, cancellationToken);
+        ArgumentNullException.ThrowIfNullOrEmpty(filePath, nameof(filePath));
+
+        await DownloadAsync(url, filePath, cancellationToken);
     }
 
     /// <summary>
@@ -415,9 +478,12 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains the file stream.</returns>
     public async Task<System.IO.Stream> GetFileStreamAsync(string repo, string path, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrEmpty(repo, nameof(repo));
+        ArgumentNullException.ThrowIfNull(path, nameof(path));
 
-        return await service.GetFileStreamAsync(repo, path, cancellationToken);
+        string url = CombineUrl(urlPrefix, repo, path);
+        return await GetFromStreamAsync(url, cancellationToken);
     }
 
     /// <summary>
@@ -428,9 +494,10 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation. The task result contains the file stream.</returns>
     public async Task<System.IO.Stream> GetFileStreamAsync(Uri url, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
+        ArgumentNullException.ThrowIfNullOrEmpty(url.ToString(), nameof(url));
 
-        return await service.GetFileStreamAsync(url, cancellationToken);
+        return await GetFromStreamAsync(url.ToString(), cancellationToken);
     }
 
     /// <summary>
@@ -443,9 +510,16 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task UploadFileAsync(string repo, string path, string filePath, CancellationToken cancellationToken = default)
     { 
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        await service.UploadFileAsync(repo, path, filePath, cancellationToken);
+        ArgumentNullException.ThrowIfNullOrEmpty(repo, nameof(repo));
+        ArgumentNullException.ThrowIfNullOrEmpty(path, nameof(path));
+        ArgumentNullException.ThrowIfNullOrEmpty(filePath, nameof(filePath));
+
+        //var req = new MultipartFormDataContent();
+        using var stream = System.IO.File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+
+        await UploadFileAsync(repo, path, stream, cancellationToken);
     }
 
     /// <summary>
@@ -458,9 +532,20 @@ public sealed class Artifactory : IDisposable
     /// <returns>A task that represents the asynchronous operation.</returns>
     public async Task UploadFileAsync(string repo, string path, Stream fileStream, CancellationToken cancellationToken = default)
     {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
+        WebServiceException.ThrowIfNotConnected(client);
 
-        await service.UploadFileAsync(repo, path, fileStream, cancellationToken);
+        ArgumentNullException.ThrowIfNullOrEmpty(repo, nameof(repo));
+        ArgumentNullException.ThrowIfNullOrEmpty(path, nameof(path));
+
+        // do not use MultipartFormDataContent
+
+        //var req = new MultipartFormDataContent();
+        //string filename = System.IO.Path.GetFileName(path);
+        //req.Add(new StreamContent(stream), "file", filename);
+
+        var req = new StreamContent(fileStream);
+        string url = CombineUrl(urlPrefix, repo, path);
+        await PutAsync(url, req, cancellationToken);
     }
 
     #endregion
@@ -472,17 +557,29 @@ public sealed class Artifactory : IDisposable
     /// <returns>
     /// A task that represents the asynchronous operation. The task result contains the <see cref="ArtifactoryVersion"/> information, or null if not available.
     /// </returns>
-    public async Task<ArtifactoryVersion?> GetVersionAsync(CancellationToken cancellationToken = default)
-    {
-        WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetVersionAsync(cancellationToken);
-        return res.CastModel<ArtifactoryVersion>(); 
+    public override async Task<string?> GetVersionStringAsync(CancellationToken cancellationToken = default)
+    {
+        WebServiceException.ThrowIfNotConnected(client);
+
+        //client?.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.org.jfrog.artifactory.system.Version+json");
+
+        var res = await GetFromJsonAsync<ArtifactoryVersionModel>("/artifactory/api/system/version", cancellationToken);
+        //return res != null ? $"{res.Version}.{res.Revision}" : null;
+        return res?.Version ?? "0.0.0";
     }
+
+    //public async Task<ArtifactoryVersion?> GetVersionAsync(CancellationToken cancellationToken = default)
+    //{
+    //    WebServiceException.ThrowIfNotConnected(client);
+
+    //    var res = await service.GetVersionAsync(cancellationToken);
+    //    return res.CastModel<ArtifactoryVersion>(); 
+    //}
 
     //public async Task GetXrayVersionAsync(CancellationToken cancellationToken = default)
     //{
-    //    WebServiceException.ThrowIfNullOrNotConnected(service);
+    //    WebServiceException.ThrowIfNotConnected(client);
 
     //    await service.GetXrayVersionAsync(cancellationToken);
     //    //return res.CastModel<JFrogVersion>();
