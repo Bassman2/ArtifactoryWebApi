@@ -1,4 +1,4 @@
-﻿namespace ArtifactoryWebApi.Service.Model;
+﻿namespace ArtifactoryWebApi.Model;
 
 [DebuggerDisplay("{Type} {PackageType} {Key}")]
 internal class RepositoryModel

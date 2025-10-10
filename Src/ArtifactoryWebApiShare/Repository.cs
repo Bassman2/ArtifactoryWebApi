@@ -6,16 +6,16 @@
 [DebuggerDisplay("{Type} {PackageType} {Key}")]
 public class Repository
 {
-    private readonly ArtifactoryService service;
+    private readonly Artifactory artifactory;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Repository"/> class.
     /// </summary>
-    /// <param name="service">The Artifactory service used to interact with the repository.</param>
+    /// <param name="artifactory">The Artifactory used to interact with the repository.</param>
     /// <param name="model">The model containing the repository's data.</param>
-    internal Repository(ArtifactoryService service, RepositoryModel model)
+    internal Repository(Artifactory artifactory, RepositoryModel model)
     {
-        this.service = service;
+        this.artifactory = artifactory;
 
         this.Key = model.Key!;
         this.Description = model.Description;

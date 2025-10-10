@@ -1,4 +1,4 @@
-﻿namespace ArtifactoryWebApi.Service.Model
+﻿namespace ArtifactoryWebApi.Model
 {
     [DebuggerDisplay("{Uri}, IsFolder: {Folder}")]
     internal class FileModel

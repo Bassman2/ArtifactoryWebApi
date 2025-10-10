@@ -1,4 +1,4 @@
-﻿namespace ArtifactoryWebApi.Service.Model;
+﻿namespace ArtifactoryWebApi.Model;
 
 internal class FileStoreSummaryModel
 {

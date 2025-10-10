@@ -16,8 +16,7 @@ global using WebServiceClient;
 global using WebServiceClient.Authenticator;
 global using WebServiceClient.Store;
 
-global using ArtifactoryWebApi.Service;
-global using ArtifactoryWebApi.Service.Model;
+global using ArtifactoryWebApi.Model;
 
 
 
