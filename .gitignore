@@ -396,4 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/Src/ArtifactoryWebApiShare/Artifactory2.cs
+
+# DocFx
+DocFx/reference/

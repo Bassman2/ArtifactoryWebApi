@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Artifactory | ArtifactoryWebApi </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Artifactory | ArtifactoryWebApi ">
+      
+      <meta name="description" content="Represents a client for interacting with the Artifactory API, providing methods for managing projects, repositories, storage, and more.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Bassman2/ArtifactoryWebApi/new/main/apiSpec/new?filename=ArtifactoryWebApi_Artifactory.md&amp;value=---%0Auid%3A%20ArtifactoryWebApi.Artifactory%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="ArtifactoryWebApi">
+            ArtifactoryWebApi
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="ArtifactoryWebApi.Artifactory">
+
+
+
+  <h1 id="ArtifactoryWebApi_Artifactory" data-uid="ArtifactoryWebApi.Artifactory" class="text-break">
+Class Artifactory  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="ArtifactoryWebApi.html">ArtifactoryWebApi</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ArtifactoryWebApi.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a client for interacting with the Artifactory API, providing methods for managing projects, repositories, storage, and more.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class Artifactory : JsonService, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="WebServiceClient.WebService.html">WebService</a></div>
+      <div><a class="xref" href="WebServiceClient.JsonService.html">JsonService</a></div>
+      <div><span class="xref">Artifactory</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_Dispose">WebService.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_Host">WebService.Host</a>
+    </div>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_IsConnected">WebService.IsConnected</a>
+    </div>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_GetVersionAsync_System_Threading_CancellationToken_">WebService.GetVersionAsync(CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_CombineUrl_System_String___">WebService.CombineUrl(params string[])</a>
+    </div>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_CombineUrl_System_String_System_ValueTuple_System_String_System_Object____">WebService.CombineUrl(string, params (string Name, object Value)[])</a>
+    </div>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_CombineUrl_System_String_System_String_System_ValueTuple_System_String_System_Object____">WebService.CombineUrl(string, string, params (string Name, object Value)[])</a>
+    </div>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_CombineUrl_System_String_System_String_System_String_System_ValueTuple_System_String_System_Object____">WebService.CombineUrl(string, string, string, params (string Name, object Value)[])</a>
+    </div>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_CombineUrl_System_String_System_String_System_String_System_String_System_ValueTuple_System_String_System_Object____">WebService.CombineUrl(string, string, string, string, params (string Name, object Value)[])</a>
+    </div>
+    <div>
+      <a class="xref" href="WebServiceClient.WebService.html#WebServiceClient_WebService_CombineUrl_System_String_System_String_System_String_System_String_System_String_System_ValueTuple_System_String_System_Object____">WebService.CombineUrl(string, string, string, string, string, params (string Name, object Value)[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="ArtifactoryWebApi_Artifactory__ctor_" data-uid="ArtifactoryWebApi.Artifactory.#ctor*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory__ctor_System_String_System_String_" data-uid="ArtifactoryWebApi.Artifactory.#ctor(System.String,System.String)">
+  Artifactory(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="ArtifactoryWebApi.Artifactory.html">Artifactory</a> class using a store key and application name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Artifactory(string storeKey, string appName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>storeKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key used to store authentication or configuration data.</p>
+</dd>
+    <dt><code>appName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the application using the GitHub API.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory__ctor_" data-uid="ArtifactoryWebApi.Artifactory.#ctor*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory__ctor_System_Uri_WebServiceClient_Authenticator_IAuthenticator_System_String_" data-uid="ArtifactoryWebApi.Artifactory.#ctor(System.Uri,WebServiceClient.Authenticator.IAuthenticator,System.String)">
+  Artifactory(Uri, IAuthenticator?, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="ArtifactoryWebApi.Artifactory.html">Artifactory</a> class using a host URI, an optional authenticator, and an application name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Artifactory(Uri host, IAuthenticator? authenticator, string appName)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>host</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd><p>The base URI of the GitHub API host.</p>
+</dd>
+    <dt><code>authenticator</code> <a class="xref" href="WebServiceClient.Authenticator.IAuthenticator.html">IAuthenticator</a></dt>
+    <dd><p>The authenticator used for API authentication, or <code>null</code> for unauthenticated access.</p>
+</dd>
+    <dt><code>appName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the application using the GitHub API.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="ArtifactoryWebApi_Artifactory_AuthenticationTestUrl_" data-uid="ArtifactoryWebApi.Artifactory.AuthenticationTestUrl*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_AuthenticationTestUrl" data-uid="ArtifactoryWebApi.Artifactory.AuthenticationTestUrl">
+  AuthenticationTestUrl
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the URL used to test authentication with the Artifactory API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override string? AuthenticationTestUrl { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="ArtifactoryWebApi_Artifactory_CopyAsync_" data-uid="ArtifactoryWebApi.Artifactory.CopyAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_CopyAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.CopyAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">
+  CopyAsync(string, string, string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L329"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies an item (file or folder) from a source repository and path to a destination repository and path in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task CopyAsync(string sourceRepo, string sourcePath, string destinationRepo, string destinationPath, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceRepo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the source repository where the item is currently located.</p>
+</dd>
+    <dt><code>sourcePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the item within the source repository.</p>
+</dd>
+    <dt><code>destinationRepo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the destination repository where the item will be copied.</p>
+</dd>
+    <dt><code>destinationPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path within the destination repository where the item will be copied.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_CreateProjectAsync_" data-uid="ArtifactoryWebApi.Artifactory.CreateProjectAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_CreateProjectAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.CreateProjectAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+  CreateProjectAsync(string, string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new project in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Project?&gt; CreateProjectAsync(string projectKey, string displayName, string descriptions, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>projectKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique key for the new project.</p>
+</dd>
+    <dt><code>displayName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The display name of the project.</p>
+</dd>
+    <dt><code>descriptions</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The description of the project.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ArtifactoryWebApi.Project.html">Project</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the created project.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_DeleteAsync_" data-uid="ArtifactoryWebApi.Artifactory.DeleteAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_DeleteAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.DeleteAsync(System.String,System.String,System.Threading.CancellationToken)">
+  DeleteAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L368"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes an item (file or folder) from a specified repository and path in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeleteAsync(string repoKey, string path, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repoKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the repository where the item is located.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the item within the repository to be deleted.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_DeleteProjectAsync_" data-uid="ArtifactoryWebApi.Artifactory.DeleteProjectAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_DeleteProjectAsync_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.DeleteProjectAsync(System.String,System.Threading.CancellationToken)">
+  DeleteProjectAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes a project from the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeleteProjectAsync(string projectKey, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>projectKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique key of the project to delete.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_DeleteRepositoryAsync_" data-uid="ArtifactoryWebApi.Artifactory.DeleteRepositoryAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_DeleteRepositoryAsync_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.DeleteRepositoryAsync(System.String,System.Threading.CancellationToken)">
+  DeleteRepositoryAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L187"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes a repository from the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeleteRepositoryAsync(string repoKey, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repoKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique key of the repository to delete.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_DownloadFileAsync_" data-uid="ArtifactoryWebApi.Artifactory.DownloadFileAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_DownloadFileAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.DownloadFileAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+  DownloadFileAsync(string, string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L444"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Downloads a file from the Artifactory system to a specified local path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DownloadFileAsync(string repo, string path, string filePath, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The repository where the file is located.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the file within the repository.</p>
+</dd>
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The local file path to save the downloaded file.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_DownloadFileAsync_" data-uid="ArtifactoryWebApi.Artifactory.DownloadFileAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_DownloadFileAsync_System_Uri_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.DownloadFileAsync(System.Uri,System.String,System.Threading.CancellationToken)">
+  DownloadFileAsync(Uri, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L463"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Downloads a file from a specified URL to a local path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DownloadFileAsync(Uri url, string filePath, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd><p>The URL of the file to download.</p>
+</dd>
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The local file path to save the downloaded file.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_ErrorHandlingAsync_" data-uid="ArtifactoryWebApi.Artifactory.ErrorHandlingAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_ErrorHandlingAsync_System_Net_Http_HttpResponseMessage_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.ErrorHandlingAsync(System.Net.Http.HttpResponseMessage,System.String,System.Threading.CancellationToken)">
+  ErrorHandlingAsync(HttpResponseMessage, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Handles errors returned from HTTP responses by reading the error content and throwing a <a class="xref" href="WebServiceClient.WebServiceException.html">WebServiceException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task ErrorHandlingAsync(HttpResponseMessage response, string memberName, CancellationToken cancellationToken)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>response</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a></dt>
+    <dd><p>The HTTP response message containing the error.</p>
+</dd>
+    <dt><code>memberName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the member where the error occurred.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to monitor for cancellation requests.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_ExistsAsync_" data-uid="ArtifactoryWebApi.Artifactory.ExistsAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_ExistsAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.ExistsAsync(System.String,System.String,System.Threading.CancellationToken)">
+  ExistsAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if an item (file or folder) exists in a specified repository and path in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; ExistsAsync(string repo, string path, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the repository where the item is located.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the item within the repository to check for existence.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains a boolean indicating whether the item exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_ExistsRepositoryAsync_" data-uid="ArtifactoryWebApi.Artifactory.ExistsRepositoryAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_ExistsRepositoryAsync_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.ExistsRepositoryAsync(System.String,System.Threading.CancellationToken)">
+  ExistsRepositoryAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L217"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if a repository exists in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; ExistsRepositoryAsync(string repoKey, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repoKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique key of the repository.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains a boolean indicating whether the repository exists.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetFileInfoAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetFileInfoAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetFileInfoAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetFileInfoAsync(System.String,System.String,System.Threading.CancellationToken)">
+  GetFileInfoAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves information about a file in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Storage?&gt; GetFileInfoAsync(string repoKey, string path, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repoKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The repository where the file is located.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the file within the repository.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ArtifactoryWebApi.Storage.html">Storage</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the file information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetFileListAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetFileListAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetFileListAsync_System_String_System_String_System_Boolean_System_Int32_System_Boolean_System_Boolean_System_Boolean_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetFileListAsync(System.String,System.String,System.Boolean,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+  GetFileListAsync(string, string, bool, int, bool, bool, bool, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L276"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a list of files in a specific storage location.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;StorageList?&gt; GetFileListAsync(string repoKey, string path, bool deep, int depth, bool listFolders, bool mdTimestamps, bool includeRootPath, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repoKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The repository where the storage location is located.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the storage location within the repository.</p>
+</dd>
+    <dt><code>deep</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to perform a deep search.</p>
+</dd>
+    <dt><code>depth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The depth of the search.</p>
+</dd>
+    <dt><code>listFolders</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to include folders in the list.</p>
+</dd>
+    <dt><code>mdTimestamps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to include metadata timestamps.</p>
+</dd>
+    <dt><code>includeRootPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Whether to include the root path in the list.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ArtifactoryWebApi.StorageList.html">StorageList</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the list of files.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetFileStatisticsAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetFileStatisticsAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetFileStatisticsAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetFileStatisticsAsync(System.String,System.String,System.Threading.CancellationToken)">
+  GetFileStatisticsAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L295"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves statistics about a file in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;StorageStats?&gt; GetFileStatisticsAsync(string repoKey, string path, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repoKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The repository where the file is located.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the file within the repository.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ArtifactoryWebApi.StorageStats.html">StorageStats</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the file statistics.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetFileStreamAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetFileStreamAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetFileStreamAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetFileStreamAsync(System.String,System.String,System.Threading.CancellationToken)">
+  GetFileStreamAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L479"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a file stream from the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Stream&gt; GetFileStreamAsync(string repo, string path, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The repository where the file is located.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the file within the repository.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the file stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetFileStreamAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetFileStreamAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetFileStreamAsync_System_Uri_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetFileStreamAsync(System.Uri,System.Threading.CancellationToken)">
+  GetFileStreamAsync(Uri, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L495"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a file stream from a specified URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Stream&gt; GetFileStreamAsync(Uri url, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>url</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd><p>The URL of the file to retrieve.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the file stream.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetFolderInfoAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetFolderInfoAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetFolderInfoAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetFolderInfoAsync(System.String,System.String,System.Threading.CancellationToken)">
+  GetFolderInfoAsync(string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves information about a folder in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Storage?&gt; GetFolderInfoAsync(string repoKey, string path, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repoKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The repository where the folder is located.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the folder within the repository.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ArtifactoryWebApi.Storage.html">Storage</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the folder information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetProjectAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetProjectAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetProjectAsync_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetProjectAsync(System.String,System.Threading.CancellationToken)">
+  GetProjectAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a specific project by its key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Project?&gt; GetProjectAsync(string projectKey, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>projectKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique key of the project.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ArtifactoryWebApi.Project.html">Project</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the project, or null if not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetProjectsAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetProjectsAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetProjectsAsync_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetProjectsAsync(System.Threading.CancellationToken)">
+  GetProjectsAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a list of all projects in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;Project&gt;?&gt; GetProjectsAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ArtifactoryWebApi.Project.html">Project</a>&gt;&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains a collection of projects.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetRepositoriesAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetRepositoriesAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetRepositoriesAsync_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetRepositoriesAsync(System.Threading.CancellationToken)">
+  GetRepositoriesAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves a list of all repositories in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;Repository&gt;?&gt; GetRepositoriesAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ArtifactoryWebApi.Repository.html">Repository</a>&gt;&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains a collection of repositories.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetRepositoryConfigurationAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetRepositoryConfigurationAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetRepositoryConfigurationAsync_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetRepositoryConfigurationAsync(System.String,System.Threading.CancellationToken)">
+  GetRepositoryConfigurationAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L139"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the configuration of a specific repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;RepositoryConfiguration?&gt; GetRepositoryConfigurationAsync(string repoKey, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repoKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique key of the repository.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ArtifactoryWebApi.RepositoryConfiguration.html">RepositoryConfiguration</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the repository configuration, or null if not found.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetStorageInfoAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetStorageInfoAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetStorageInfoAsync_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetStorageInfoAsync(System.Threading.CancellationToken)">
+  GetStorageInfoAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L412"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves storage information for the Artifactory system, including repository summaries, file store details, and binary statistics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;StorageInfo?&gt; GetStorageInfoAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ArtifactoryWebApi.StorageInfo.html">StorageInfo</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the storage information.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_GetVersionStringAsync_" data-uid="ArtifactoryWebApi.Artifactory.GetVersionStringAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_GetVersionStringAsync_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.GetVersionStringAsync(System.Threading.CancellationToken)">
+  GetVersionStringAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L561"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves the version information of the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;string?&gt; GetVersionStringAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the <a class="xref" href="ArtifactoryWebApi.ArtifactoryVersion.html">ArtifactoryVersion</a> information, or null if not available.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_MoveAsync_" data-uid="ArtifactoryWebApi.Artifactory.MoveAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_MoveAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.MoveAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">
+  MoveAsync(string, string, string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L350"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves an item (file or folder) from a source repository and path to a destination repository and path in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task MoveAsync(string sourceRepo, string sourcePath, string destinationRepo, string destinationPath, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sourceRepo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the source repository where the item is currently located.</p>
+</dd>
+    <dt><code>sourcePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path of the item within the source repository.</p>
+</dd>
+    <dt><code>destinationRepo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The name of the destination repository where the item will be moved.</p>
+</dd>
+    <dt><code>destinationPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path within the destination repository where the item will be moved.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_RefreshStorageInfoAsync_" data-uid="ArtifactoryWebApi.Artifactory.RefreshStorageInfoAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_RefreshStorageInfoAsync_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.RefreshStorageInfoAsync(System.Threading.CancellationToken)">
+  RefreshStorageInfoAsync(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L425"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Refreshes the storage information for the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RefreshStorageInfoAsync(CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_UpdateRepositoryAsync_" data-uid="ArtifactoryWebApi.Artifactory.UpdateRepositoryAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_UpdateRepositoryAsync_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.UpdateRepositoryAsync(System.String,System.Threading.CancellationToken)">
+  UpdateRepositoryAsync(string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L201"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates a repository in the Artifactory system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Repository?&gt; UpdateRepositoryAsync(string repoKey, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repoKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The unique key of the repository to update.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ArtifactoryWebApi.Repository.html">Repository</a>&gt;</dt>
+    <dd><p>A task that represents the asynchronous operation. The task result contains the updated repository.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_UploadFileAsync_" data-uid="ArtifactoryWebApi.Artifactory.UploadFileAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_UploadFileAsync_System_String_System_String_System_IO_Stream_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.UploadFileAsync(System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)">
+  UploadFileAsync(string, string, Stream, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L533"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uploads a file to the Artifactory system from a stream.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task UploadFileAsync(string repo, string path, Stream fileStream, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The repository where the file will be uploaded.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path within the repository to upload the file.</p>
+</dd>
+    <dt><code>fileStream</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.io.stream">Stream</a></dt>
+    <dd><p>The stream containing the file data to upload.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="ArtifactoryWebApi_Artifactory_UploadFileAsync_" data-uid="ArtifactoryWebApi.Artifactory.UploadFileAsync*"></a>
+
+  <h3 id="ArtifactoryWebApi_Artifactory_UploadFileAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="ArtifactoryWebApi.Artifactory.UploadFileAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">
+  UploadFileAsync(string, string, string, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L511"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Uploads a file to the Artifactory system from a local path.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task UploadFileAsync(string repo, string path, string filePath, CancellationToken cancellationToken = default)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>repo</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The repository where the file will be uploaded.</p>
+</dd>
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path within the repository to upload the file.</p>
+</dd>
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The local file path of the file to upload.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>A token to cancel the operation.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that represents the asynchronous operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Bassman2/ArtifactoryWebApi/blob/main/Src/ArtifactoryWebApiShare/Artifactory.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

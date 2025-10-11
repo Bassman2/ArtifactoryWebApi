@@ -1,0 +1,657 @@
+{
+  "source_base_path": "D:/WebServices/ArtifactoryWebApi/DocFx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.AdminPrivileges.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.AdminPrivileges.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.AdminPrivileges",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.AdminPrivileges.yml\" sourcestartlinenumber=\"1\">Represents the administrative privileges for managing members, resources, and indexing resources.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.Artifactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.Artifactory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.Artifactory",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.Artifactory.yml\" sourcestartlinenumber=\"1\">Represents a client for interacting with the Artifactory API, providing methods for managing projects, repositories, storage, and more.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.ArtifactoryVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.ArtifactoryVersion.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.ArtifactoryVersion",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.ArtifactoryVersion.yml\" sourcestartlinenumber=\"1\">Represents the version and revision information of the Artifactory server.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.BinariesSummary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.BinariesSummary.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.BinariesSummary",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.BinariesSummary.yml\" sourcestartlinenumber=\"1\">Represents a summary of binary and artifact statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.Checksums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.Checksums.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.Checksums",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.Checksums.yml\" sourcestartlinenumber=\"1\">Represents the checksum values for a file or artifact.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.Child.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.Child.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.Child",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.Child.yml\" sourcestartlinenumber=\"1\">Represents a child resource, which can be either a file or a folder.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.File.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.File.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.File",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.File.yml\" sourcestartlinenumber=\"1\">Represents a file or folder in the Artifactory system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.FileStoreSummary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.FileStoreSummary.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.FileStoreSummary",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.FileStoreSummary.yml\" sourcestartlinenumber=\"1\">Represents a summary of the file store, including storage type and directory information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.JFrogVersion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.JFrogVersion.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.JFrogVersion",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.JFrogVersion.yml\" sourcestartlinenumber=\"1\">Represents the version information for a JFrog product or service.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.MdTimestamps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.MdTimestamps.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.MdTimestamps",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.MdTimestamps.yml\" sourcestartlinenumber=\"1\">Represents metadata timestamps associated with a file or folder.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.PackageType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.PackageType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.PackageType",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.PackageType.yml\" sourcestartlinenumber=\"1\">Represents the type of a package in the Artifactory system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.Project.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.Project.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.Project",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.Project.yml\" sourcestartlinenumber=\"1\">Represents a project in the Artifactory system, including its metadata and administrative settings.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.RepositoriesSummary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.RepositoriesSummary.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.RepositoriesSummary",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.RepositoriesSummary.yml\" sourcestartlinenumber=\"1\">Represents a summary of a repository in the Artifactory system, including its metadata and usage statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.Repository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.Repository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.Repository",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.Repository.yml\" sourcestartlinenumber=\"1\">Represents a repository in the Artifactory system, including its metadata and configuration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.RepositoryConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.RepositoryConfiguration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.RepositoryConfiguration",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.RepositoryConfiguration.yml\" sourcestartlinenumber=\"1\">Represents the configuration of a repository in the Artifactory system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.RepositoryType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.RepositoryType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.RepositoryType",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.RepositoryType.yml\" sourcestartlinenumber=\"1\">Represents the type of a repository in the Artifactory system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.Storage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.Storage.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.Storage",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.Storage.yml\" sourcestartlinenumber=\"1\">Represents storage information for a file or folder in the Artifactory system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.StorageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.StorageInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.StorageInfo",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.StorageInfo.yml\" sourcestartlinenumber=\"1\">Represents storage information in the Artifactory system, including repository summaries, file store details, and binary statistics.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.StorageList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.StorageList.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.StorageList",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.StorageList.yml\" sourcestartlinenumber=\"1\">Represents a list of files in a specific storage location within the Artifactory system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.StorageStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.StorageStats.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi.StorageStats",
+      "Summary": "<p sourcefile=\"reference/ArtifactoryWebApi.StorageStats.yml\" sourcestartlinenumber=\"1\">Represents statistics related to the storage and usage of a file or resource in the Artifactory system.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/ArtifactoryWebApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/ArtifactoryWebApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ArtifactoryWebApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.ArgumentRequestUriException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.ArgumentRequestUriException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.ArgumentRequestUriException",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.ArgumentRequestUriException.yml\" sourcestartlinenumber=\"1\">Exception thrown when the request URI argument is invalid.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Attributes.CastAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Attributes.CastAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Attributes.CastAttribute",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.Attributes.CastAttribute.yml\" sourcestartlinenumber=\"1\">Specifies the class name to be used for casting.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Attributes.ModelAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Attributes.ModelAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Attributes.ModelAttribute",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.Attributes.ModelAttribute.yml\" sourcestartlinenumber=\"1\">Indicates that a class is a model used by the WebServiceClient.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Attributes.ModelIgnoreAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Attributes.ModelIgnoreAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Attributes.ModelIgnoreAttribute",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.Attributes.ModelIgnoreAttribute.yml\" sourcestartlinenumber=\"1\">Specifies that a property should be ignored by the model processing logic.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Attributes.ModelPropertyParametersAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Attributes.ModelPropertyParametersAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Attributes.ModelPropertyParametersAttribute",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.Attributes.ModelPropertyParametersAttribute.yml\" sourcestartlinenumber=\"1\">Attribute to specify additional parameters for a model property, such as the JSON property name.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Attributes.TestAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Attributes.TestAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Attributes.TestAttribute",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.Attributes.TestAttribute.yml\" sourcestartlinenumber=\"1\">Indicates that a class is a model used by the WebServiceClient.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Attributes.TestAttributeAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Attributes.TestAttributeAccess.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Attributes.TestAttributeAccess",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.Attributes.TestAttributeAccess.yml\" sourcestartlinenumber=\"1\">Specifies the access level for the <xref href=\"WebServiceClient.Attributes.TestAttribute\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Attributes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Attributes",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Authenticator.IAuthenticator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Authenticator.IAuthenticator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Authenticator.IAuthenticator",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.Authenticator.IAuthenticator.yml\" sourcestartlinenumber=\"1\">Defines a method to authenticate a web jira client.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Authenticator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Authenticator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Authenticator",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.JsonConverters.JsonDateTimeConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.JsonConverters.JsonDateTimeConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.JsonConverters.JsonDateTimeConverter",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.JsonConverters.JsonDateTimeConverter.yml\" sourcestartlinenumber=\"1\">Converts DateTime? objects to and from JSON, if &quot;:&quot; is missing in time zone.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.JsonConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.JsonConverters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.JsonConverters",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.JsonService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.JsonService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.JsonService",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.JsonService.yml\" sourcestartlinenumber=\"1\">Represents an abstract base class for JSON-based web services, providing common functionality for HTTP operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Store.AuthenticationType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Store.AuthenticationType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Store.AuthenticationType",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.Store.AuthenticationType.yml\" sourcestartlinenumber=\"1\">Specifies the type of authentication used in the web jira client.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Store.KeyStore.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Store.KeyStore.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Store.KeyStore",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.Store.KeyStore.yml\" sourcestartlinenumber=\"1\">Represents a storage for key-value pairs related to web jira authentication and configuration.\nProvides methods to retrieve and initialize key store items from a JSON file.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.Store.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.Store.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.Store",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.WebService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.WebService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.WebService",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.WebService.yml\" sourcestartlinenumber=\"1\">Represents an abstract base class for web services, providing common functionality for HTTP operations and authentication.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.WebServiceException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.WebServiceException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.WebServiceException",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.WebServiceException.yml\" sourcestartlinenumber=\"1\">Represents an exception that occurs during web jira operations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.XSerializer.IXSerializable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.XSerializer.IXSerializable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.XSerializer.IXSerializable",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.XSerializer.IXSerializable.yml\" sourcestartlinenumber=\"1\">Defines methods for XML serialization and deserialization.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.XSerializer.XSerializableExt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.XSerializer.XSerializableExt.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.XSerializer.XSerializableExt",
+      "Summary": "<p sourcefile=\"reference/WebServiceClient.XSerializer.XSerializableExt.yml\" sourcestartlinenumber=\"1\">Provides extension methods for XML serialization and deserialization.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.XSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.XSerializer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient.XSerializer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "reference/WebServiceClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/WebServiceClient.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "WebServiceClient",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "reference/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "reference/toc.html"
+        },
+        ".json": {
+          "relative_path": "reference/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
