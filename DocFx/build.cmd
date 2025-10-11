@@ -1,2 +1,4 @@
-docfx docfx.json --verbose > log.txt
+docfx docfx.json
+
+rem --verbose > log.txt
 

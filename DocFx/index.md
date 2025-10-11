@@ -2,9 +2,9 @@
 _layout: landing
 ---
 
-## ArtifactoryWebApi is a .NET API for the Artifactory web service.
-		
-		
+## ArtifactoryWebApi 
+
+ArtifactoryWebApi is a .NET API for the Artifactory web service.	
 		
 ### Getting Started
 
@@ -12,7 +12,7 @@ _layout: landing
 To get started, add the ArtifactoryWebApi package to your project.
 
 
-The followin example code shows how to read alle hardware information.</para>
+The followin example code shows how to read alle hardware information.
 
     using ArtifactoryWebApi;
     ...
