@@ -28,8 +28,11 @@
       "modern"
     ],
     "globalMetadata": {
+	  "_appLogoPath": null,
+	  "_appFaviconPath": null,
       "_appName": "ArtifactoryWebApi",
       "_appTitle": "ArtifactoryWebApi",
+	  "_appFooter": "Copyright 2025 © by Ralf Beckers",
       "_enableSearch": true,
       "pdf": false
     }

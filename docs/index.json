@@ -1,8 +1,8 @@
 {
   "index.html": {
     "href": "index.html",
-    "title": "This is the HOMEPAGE. | ArtifactoryWebApi",
-    "summary": "This is the HOMEPAGE. Refer to Markdown for how to write markdown files. Quick Start Notes: Add images to the images folder if the file is referencing an image."
+    "title": "ArtifactoryWebApi is a .NET API for the Artifactory web service. | ArtifactoryWebApi",
+    "summary": "ArtifactoryWebApi is a .NET API for the Artifactory web service. Getting Started To get started, add the ArtifactoryWebApi package to your project. The followin example code shows how to read alle hardware information. using ArtifactoryWebApi; ... +using (Artifactory client = new Artifactory(host, token, appName)) { var repositoryList = client.GetRepositoriesAsync(); }"
   },
   "reference/ArtifactoryWebApi.AdminPrivileges.html": {
     "href": "reference/ArtifactoryWebApi.AdminPrivileges.html",
