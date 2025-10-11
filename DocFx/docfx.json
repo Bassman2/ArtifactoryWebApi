@@ -28,8 +28,7 @@
       "modern"
     ],
     "globalMetadata": {
-	  "_appLogoPath": null,
-	  "_appFaviconPath": null,
+	  "_appLogoPath": "images/bassman.svg",
       "_appName": "ArtifactoryWebApi",
       "_appTitle": "ArtifactoryWebApi",
 	  "_appFooter": "Copyright 2025 © by Ralf Beckers",
