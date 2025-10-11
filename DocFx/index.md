@@ -2,10 +2,15 @@
 _layout: landing
 ---
 
-# This is the **HOMEPAGE**.
+# ArtifactoryWebApi is a .NET API for the Artifactory web service.
+		
+## Getting Started
+To get started, add the ArtifactoryWebApi package to your project.
+The followin example code shows how to read alle hardware information.</para>
 
-Refer to [Markdown](http://daringfireball.net/projects/markdown/) for how to write markdown files.
-
-## Quick Start Notes:
-
-1. Add images to the *images* folder if the file is referencing an image.
+    using ArtifactoryWebApi;
+    ...
+    +using (Artifactory client = new Artifactory(host, token, appName))
+    {
+        var repositoryList = client.GetRepositoriesAsync();
+    }
