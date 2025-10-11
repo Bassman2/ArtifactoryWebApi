@@ -12,20 +12,20 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "images/bassman.svg",
+      "source_relative_path": "images/bassman.ico",
       "output": {
         "resource": {
-          "relative_path": "images/bassman.svg"
+          "relative_path": "images/bassman.ico"
         }
       },
       "version": ""
     },
     {
       "type": "Resource",
-      "source_relative_path": "images/bassman_big.svg",
+      "source_relative_path": "images/bassman.svg",
       "output": {
         "resource": {
-          "relative_path": "images/bassman_big.svg"
+          "relative_path": "images/bassman.svg"
         }
       },
       "version": ""

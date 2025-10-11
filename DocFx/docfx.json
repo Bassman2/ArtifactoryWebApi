@@ -29,6 +29,7 @@
     ],
     "globalMetadata": {
 	  "_appLogoPath": "images/bassman.svg",
+	  "_appFaviconPath": "images/bassman.ico",
       "_appName": "ArtifactoryWebApi",
       "_appTitle": "ArtifactoryWebApi",
 	  "_appFooter": "Copyright 2025 © by Ralf Beckers",
