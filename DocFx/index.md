@@ -16,7 +16,7 @@ The followin example code shows how to read alle hardware information.
 
     using ArtifactoryWebApi;
     ...
-    +using (Artifactory client = new Artifactory(host, token, appName))
+    using (Artifactory client = new Artifactory(host, token, appName))
     {
         var repositoryList = client.GetRepositoriesAsync();
     }
