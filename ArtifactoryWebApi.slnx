@@ -10,6 +10,7 @@
     <Project Path="../WebServiceClient/Src/WebServiceClientShare/WebServiceClientShare.shproj" />
   </Folder>
   <Folder Name="/Src/">
+    <Project Path="Src/ArtifactoryWebApi100/ArtifactoryWebApi100.csproj" />
     <Project Path="Src/ArtifactoryWebApi80/ArtifactoryWebApi80.csproj" />
     <Project Path="Src/ArtifactoryWebApi90/ArtifactoryWebApi90.csproj" />
     <Project Path="Src/ArtifactoryWebApiShare/ArtifactoryWebApiShare.shproj" />
