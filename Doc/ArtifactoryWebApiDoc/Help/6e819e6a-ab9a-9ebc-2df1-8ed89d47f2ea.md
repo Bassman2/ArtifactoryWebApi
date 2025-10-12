@@ -1,0 +1,43 @@
+# LastUpdated Property
+
+
+Gets the last updated timestamp of the file or folder.
+
+
+
+## Definition
+**Namespace:** <a href="75b20af6-7197-02a5-e38f-f7b15eac4732">ArtifactoryWebApi</a>  
+**Assembly:** ArtifactoryWebApi (in ArtifactoryWebApi.dll) Version: 0.1.0.0+14ac693bb5d14ba350f0d89917a9d924a973c73a
+
+**C#**
+``` C#
+public DateTime? LastUpdated { get; }
+```
+**VB**
+``` VB
+Public ReadOnly Property LastUpdated As DateTime?
+	Get
+```
+**C++**
+``` C++
+public:
+property Nullable<DateTime> LastUpdated {
+	Nullable<DateTime> get ();
+}
+```
+**F#**
+``` F#
+member LastUpdated : Nullable<DateTime> with get
+```
+
+
+
+#### Property Value
+<a href="https://learn.microsoft.com/dotnet/api/system.nullable-1" target="_blank" rel="noopener noreferrer">Nullable</a>(<a href="https://learn.microsoft.com/dotnet/api/system.datetime" target="_blank" rel="noopener noreferrer">DateTime</a>)
+
+## See Also
+
+
+#### Reference
+<a href="b1378c1d-f72c-3df8-b8d7-925781091834">Storage Class</a>  
+<a href="75b20af6-7197-02a5-e38f-f7b15eac4732">ArtifactoryWebApi Namespace</a>  
