@@ -6,7 +6,7 @@
 
 ## Documentation 
 
-[Pages](https://bassman2.github.io/ArtifactoryWebApi/reference/ArtifactoryWebApi.html)
+[Pages](https://bassman2.github.io/ArtifactoryWebApi)
 
 ## Donate
 
