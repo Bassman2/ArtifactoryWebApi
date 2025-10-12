@@ -4,6 +4,10 @@
 
 [NuGet Package](https://www.nuget.org/packages/ArtifactoryWebApi/)
 
+## Documentation 
+
+[Pages](https://bassman2.github.io/ArtifactoryWebApi/reference/ArtifactoryWebApi.html)
+
 ## Donate
 
 You are welcome to support this project. 
