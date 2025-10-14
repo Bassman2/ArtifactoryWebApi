@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Topics>
-  <Topic id="b7bb4b78-b892-434f-a637-051bd3a30410" visible="True" isDefault="true" isSelected="true" title="Welcome to the ArtifactoryWebApi">
-    <HelpKeywords>
-      <HelpKeyword index="K" term="Welcome" />
-    </HelpKeywords>
-  </Topic>
-  <Topic id="1b51e55c-2c51-42b2-8800-ee2d7afdaca3" visible="True" />
-</Topics>
